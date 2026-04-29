@@ -1,0 +1,220 @@
+{
+  "episodes": {
+    "episode_1": [
+      {
+        "scene_id": 1,
+        "visual_prompt": "Close-up, [MAIN_1] clenched fist, dark screen glow, tense",
+        "audio_segment": "Муж попросил меня проверить его новую секретаршу, но он не знал, что я уже наняла детектива."
+      },
+      {
+        "scene_id": 2,
+        "visual_prompt": "Wide shot, [PLACE_1] office, [MAIN_1] watching monitor, [MAIN_2] entering, bright",
+        "audio_segment": "Камера слежения. Кабинет директора. Он входит, за ним – молодая секретарша. Она улыбается, поправляет волосы."
+      },
+      {
+        "scene_id": 3,
+        "visual_prompt": "Medium shot, [MAIN_1] reacting, angry, monitor reflection, dark",
+        "audio_segment": "Жена за экраном сжимает кулаки. \"Просто игра,\" - шепчет она."
+      },
+      {
+        "scene_id": 4,
+        "visual_prompt": "Medium shot, [MAIN_2] flirting, touching hand, [MAIN_1] stoic, [PLACE_1]",
+        "audio_segment": "Секретарша начинает невинный флирт: комплименты, легкое прикосновение к руке. Муж отвечает сдержанно."
+      },
+      {
+        "scene_id": 5,
+        "visual_prompt": "Medium shot, [MAIN_2] suggesting late work, [MAIN_1] cold look, [PLACE_1]",
+        "audio_segment": "Флирт нарастает. Секретарша предлагает \"поработать вместе допоздна\". Муж соглашается, но его взгляд холоден."
+      },
+      {
+        "scene_id": 6,
+        "visual_prompt": "Close-up, [MAIN_1] dialing phone, determined, dark office",
+        "audio_segment": "Жена уже готова к скандалу, набирает номер полиции."
+      },
+      {
+        "scene_id": 7,
+        "visual_prompt": "Medium shot, [MAIN_1] watching, [MAIN_2] opening safe, [PLACE_1]",
+        "audio_segment": "Внезапно муж встает, подходит к сейфу. Открывает. Жена приглядывается."
+      },
+      {
+        "scene_id": 8,
+        "visual_prompt": "Close-up, documents, company shares, name change, blurred",
+        "audio_segment": "Это не фотографии или украшения. Это документы."
+      },
+      {
+        "scene_id": 9,
+        "visual_prompt": "Medium shot, [MAIN_1] shocked, backing away, monitor glow",
+        "audio_segment": "Документы о переоформлении бизнеса. Акции компании переводятся на имя секретарши. Жена отшатывается от экрана."
+      },
+      {
+        "scene_id": 10,
+        "visual_prompt": "Close-up, [MAIN_2] smirking, looking at camera, cold",
+        "audio_segment": "Муж смотрит в камеру, на губах – ледяная улыбка."
+      },
+      {
+        "scene_id": 11,
+        "visual_prompt": "Close-up, [MAIN_1] hanging up phone, silent, determined",
+        "audio_segment": "Жена молча сбрасывает звонок в полицию."
+      },
+      {
+        "scene_id": 12,
+        "visual_prompt": "Close-up, [MAIN_1] dialing phone, intense, focused",
+        "audio_segment": "Она берет телефон и набирает другой номер."
+      },
+      {
+        "scene_id": 13,
+        "visual_prompt": "Close-up, [MAIN_1] eyes, anger, no tears, steely gaze",
+        "audio_segment": "\"Передай ему, что игра окончена. И пусть приготовит доказательства.\" В ее глазах – не слезы, а ярость."
+      },
+      {
+        "scene_id": 14,
+        "visual_prompt": "Wide shot, [MAIN_1] bursting into office, [PLACE_1], lawyer beside",
+        "audio_segment": "Она врывается в офис, но не с полицией, а с адвокатом и компроматом на мужа."
+      }
+    ],
+    "episode_2": [
+      {
+        "scene_id": 1,
+        "visual_prompt": "Close-up, [MAIN_1] face, photo in hand, cold expression, dim lighting",
+        "audio_segment": "Месть – это блюдо, которое подают холодным. Но иногда оно горчит."
+      },
+      {
+        "scene_id": 2,
+        "visual_prompt": "Medium shot, [MAIN_1] staring at photo, [MAIN_2] family, icy glare, muted colors",
+        "audio_segment": "Каори смотрела на фотографию: учитель истории, господин Ито, улыбался, рядом – жена и маленькая дочка. В глазах Каори – лед."
+      },
+      {
+        "scene_id": 3,
+        "visual_prompt": "Medium shot, [MAIN_1] swapping papers, [PLACE_1] classroom, stealthy, low key lighting",
+        "audio_segment": "В школьном кабинете, Каори незаметно подменяет его конспект фальшивым, с компрометирующей информацией."
+      },
+      {
+        "scene_id": 4,
+        "visual_prompt": "Medium shot, [MAIN_2] lecturing, reading fake notes, face paling, shocked expression",
+        "audio_segment": "Она наблюдает из-за двери, как господин Ито начинает лекцию. Он читает... и замирает. Его лицо бледнеет."
+      },
+      {
+        "scene_id": 5,
+        "visual_prompt": "Close-up, [MAIN_1] face, conflicted emotions, flashback to [MAIN_2]'s kindness, soft lighting",
+        "audio_segment": "Каори чувствует, как побеждает. Но в этот момент она вспоминает его добрые глаза, его веру в нее."
+      },
+      {
+        "scene_id": 6,
+        "visual_prompt": "Medium shot, [MAIN_1] grabbing paper, yelling, [PLACE_1] classroom, chaotic, bright lighting",
+        "audio_segment": "Каори выхватывает фальшивый конспект, кричит: \"Это подделка!\". Весь класс в шоке."
+      },
+      {
+        "scene_id": 7,
+        "visual_prompt": "Close-up, [MAIN_2] face, hurt and confused, looking at [MAIN_1], sad expression",
+        "audio_segment": "Господин Ито смотрит на нее, растерянный и обиженный. В его взгляде – не гнев, а глубокая печаль."
+      },
+      {
+        "scene_id": 8,
+        "visual_prompt": "Medium shot, [MAIN_1] in director's office, silent, ashamed, dim lighting",
+        "audio_segment": "Директор вызывает Каори на разговор. Она молчит, не оправдываясь."
+      },
+      {
+        "scene_id": 9,
+        "visual_prompt": "Medium shot, [MAIN_2] in doorway, shaking head subtly, [MAIN_1] looking up, somber mood",
+        "audio_segment": "Господин Ито стоит в дверях, смотрит на нее. Каори замечает, как он незаметно качает головой."
+      },
+      {
+        "scene_id": 10,
+        "visual_prompt": "Wide shot, [PLACE_1] school hallway, whispers, [MAIN_1] isolated, bleak atmosphere",
+        "audio_segment": "Завтра – совет школы. И теперь она не знает, чего ждать больше: наказания или собственного стыда. Кто-то шепчет: \"Она же хотела ему помочь...\""
+      },
+      {
+        "scene_id": 11,
+        "visual_prompt": "Medium shot, [MAIN_1] alone, desolate, looking down, grey tones",
+        "audio_segment": "Каори исключена из школы."
+      },
+      {
+        "scene_id": 12,
+        "visual_prompt": "Close-up, [MAIN_1] face, filled with guilt, tears welling up, dark lighting",
+        "audio_segment": "Она узнает, что господин Ито подал на развод, и винит себя в этом."
+      }
+    ],
+    "episode_3": [
+      {
+        "scene_id": 1,
+        "visual_prompt": "Close-up, [MAIN_1] face, rain-streaked window, somber grey",
+        "audio_segment": "Он всегда знал."
+      },
+      {
+        "scene_id": 2,
+        "visual_prompt": "Wide shot, [MAIN_1] standing, city skyline blurred by rain, cold atmosphere",
+        "audio_segment": "Капли дождя размывают краски города. Юки, сжимая в руке сломанный кулон, стоит перед зданием компании отца."
+      },
+      {
+        "scene_id": 3,
+        "visual_prompt": "Medium shot, [MAIN_1] holding broken pendant, imposing building facade, dark mood",
+        "audio_segment": "Отец – влиятельный бизнесмен, чья репутация безупречна. Но Юки знает правду. Он видел записи."
+      },
+      {
+        "scene_id": 4,
+        "visual_prompt": "Medium shot, [MAIN_1] entering office, luxurious interior, tense atmosphere",
+        "audio_segment": "Юки проникает в кабинет отца. Отец спокоен, даже приветлив. Он предвидел этот визит."
+      },
+      {
+        "scene_id": 5,
+        "visual_prompt": "Close-up, photos of [MAIN_1] & [MAIN_2] as children, father's calm face, unsettling",
+        "audio_segment": "На столе – фотографии Юки и Кенджи в детстве. Отец рассказывает, что Кенджи был угрозой, его отец – слабым человеком."
+      },
+      {
+        "scene_id": 6,
+        "visual_prompt": "Medium shot, father gesturing, offering [MAIN_1] a seat, opulent office, manipulative",
+        "audio_segment": "Он предлагает Юки место рядом с собой, власть и богатство."
+      },
+      {
+        "scene_id": 7,
+        "visual_prompt": "Close-up, [MAIN_1] face, flashback to [MAIN_2]'s dying words, distressed",
+        "audio_segment": "Юки отворачивается. Он вспоминает последние слова Кенджи, брошенные перед смертью: \"Он… он знал, что сделает\"."
+      },
+      {
+        "scene_id": 8,
+        "visual_prompt": "Extreme close-up, pendant shattering on desk, father's shocked reaction, dramatic",
+        "audio_segment": "Юки разбивает кулон о стол. Это кулон Кенджи, подарок на день рождения. Отец хмурится."
+      },
+      {
+        "scene_id": 9,
+        "visual_prompt": "Close-up, father's eyes, flicker of fear, subtle but impactful",
+        "audio_segment": "В его глазах мелькает страх. Он впервые видит неповиновение в сыне."
+      },
+      {
+        "scene_id": 10,
+        "visual_prompt": "Medium shot, father gesturing to guards, [MAIN_1] defiant, tense",
+        "audio_segment": "Отец приказывает охране забрать Юки."
+      },
+      {
+        "scene_id": 11,
+        "visual_prompt": "Close-up, [MAIN_1] sending text, determined expression, urgent",
+        "audio_segment": "Но Юки успевает отправить сообщение Кэйко, сестре Кенджи, с доказательствами вины отца."
+      },
+      {
+        "scene_id": 12,
+        "visual_prompt": "Wide shot, police surrounding building, flashing lights, chaotic",
+        "audio_segment": "Полиция окружает здание."
+      },
+      {
+        "scene_id": 13,
+        "visual_prompt": "Medium shot, [MAIN_1] looking out window, somber reflection, regretful",
+        "audio_segment": "Юки смотрит в окно, на светящиеся мигалки. Месть свершилась, но цена оказалась высока."
+      },
+      {
+        "scene_id": 14,
+        "visual_prompt": "Close-up, text message on phone: \"Спасибо. Но это только начало.\", ominous",
+        "audio_segment": "Кэйко отвечает лишь одним сообщением: \"Спасибо. Но это только начало\"."
+      },
+      {
+        "scene_id": 15,
+        "visual_prompt": "Medium shot, Kэйко, determined face, starting investigation, dark room",
+        "audio_segment": "Кэйко начинает собственное расследование, выявляя еще более масштабный заговор."
+      }
+    ]
+  },
+  "characters_metadata": {
+    "Kaori": "Female, 17, long black hair, delicate features, school uniform, often displays conflicted emotions, determined gaze.",
+    "Mr_Ito": "Male, 30s, short dark hair, kind eyes, wears formal teacher attire, appears thoughtful and reserved, conveys quiet dignity.",
+    "Yuki": "Male, 20s, dark hair, intense expression, business attire, haunted eyes, carries a sense of burdened responsibility, stoic posture."
+  }
+}
