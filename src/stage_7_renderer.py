@@ -1,4 +1,5 @@
 import os
+import shutil
 import json
 import math
 from moviepy import ImageClip, AudioFileClip, concatenate_videoclips, CompositeVideoClip, TextClip
@@ -14,6 +15,15 @@ MAX_H_RATIO      = 0.22      # высота зоны субтитров
 GROUP_SIZE       = 3         # максимум слов в одной группе
 PHRASE_GAP       = 0.35      # пауза между словами для разбивки на фразы (сек)
 
+def check_fonts():
+    """Проверяет наличие шрифтов, критично для Colab."""
+    if not os.path.exists(FONT_PATH):
+        print(f"⚠️ Шрифт не найден по пути {FONT_PATH}. Попытка поиска в системе...")
+        # Если на Гитхабе забыли папку, это спасет рендер
+        alt_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+        if os.path.exists(alt_path):
+            return alt_path
+    return FONT_PATH
 
 # ─────────────────────────────────────────────────────────────
 # Утилиты зоны и шрифта
@@ -249,18 +259,21 @@ def create_animated_clip(scene_data, ep_name, target_size=(240, 426)):
 # ─────────────────────────────────────────────────────────────
 
 def run_stage_7_render():
+    global FONT_PATH
+    FONT_PATH = check_fonts()
     manifest_path = "data/3_assembly_manifest.json"
     if not os.path.exists(manifest_path):
         print(f"❌ Манифест не найден: {manifest_path}")
-        return
+        return False
 
-    with open(manifest_path, "r", encoding="utf-8") as f:
-        manifest = json.load(f)
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
 
-    output_dir = "outputs/final_videos"
-    os.makedirs(output_dir, exist_ok=True)
+        output_dir = "outputs/final_videos"
+        os.makedirs(output_dir, exist_ok=True)
 
-    for ep_name, scenes in manifest.items():
+        for ep_name, scenes in manifest.items():
         print(f"\n🎬 Рендеринг эпизода: {ep_name}")
         final_clips = []
         audio_refs  = []
@@ -280,12 +293,14 @@ def run_stage_7_render():
         final_video.write_videofile(
             target_path, fps=24,
             codec="libx264", audio_codec="aac",
-            threads=2, preset="ultrafast"
+            
         )
 
         final_video.close()
-        for c in final_clips: c.close()
-        for a in audio_refs:  a.close()
+        return True # Сигнал успеха для оркестратора
+    except Exception as e:
+        print(f"❌ Ошибка рендеринга: {e}")
+        return False
 
 
 if __name__ == "__main__":
