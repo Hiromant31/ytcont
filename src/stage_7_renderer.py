@@ -274,9 +274,9 @@ def run_stage_7_render():
         os.makedirs(output_dir, exist_ok=True)
 
         for ep_name, scenes in manifest.items():
-        print(f"\n🎬 Рендеринг эпизода: {ep_name}")
-        final_clips = []
-        audio_refs  = []
+            print(f"\n🎬 Рендеринг эпизода: {ep_name}")
+            final_clips = []
+            audio_refs  = []
 
         for i, scene in enumerate(scenes):
             print(f"   ∟ Сцена {scene['scene_id']} + субтитры")
