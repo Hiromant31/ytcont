@@ -200,31 +200,39 @@ def run_stage_7_render():
             print(f"\n🎬 Рендеринг эпизода: {ep_name}")
             final_clips = []
             
+            # Вложенный цикл (8 пробелов от края)
             for i, scene in enumerate(scenes):
                 print(f"   ∟ Сцена {scene['scene_id']}")
                 clip, audio = create_animated_clip(scene, ep_name)
+                
                 if i > 0:
                     clip = clip.with_effects([CrossFadeIn(duration=0.6)])
+                
                 final_clips.append(clip)
 
+            # Проверка и сборка (8 пробелов от края, внутри цикла по эпизодам)
             if final_clips:
                 final_video = concatenate_videoclips(final_clips, method="compose", padding=-0.6)
                 target_path = os.path.join(output_dir, f"{ep_name}.mp4")
                 print(f"🚀 Запись: {target_path}...")
 
                 final_video.write_videofile(
-                    target_path, fps=24,
-                    codec="libx264", audio_codec="aac",
-                    threads=4, preset="ultrafast"
+                    target_path, 
+                    fps=24,
+                    codec="libx264", 
+                    audio_codec="aac",
+                    threads=4, 
+                    preset="ultrafast"
                 )
                 
-                # Очистка
                 final_video.close()
-                for c in final_clips: c.close()
+                for c in final_clips:
+                    c.close()
         
         return True
     except Exception as e:
         print(f"❌ Ошибка рендеринга: {e}")
+        import traceback
         traceback.print_exc()
         return False
 
