@@ -36,9 +36,9 @@ def synthesize_speech(text, output_path, folder_id, api_key):
             return False
 
 def run_stage_5_yandex_tts():
-    # Настройка прокси (если нужно для доступа к API)
-    os.environ["HTTP_PROXY"] = "http://127.0.0.1:10809"
-    os.environ["HTTPS_PROXY"] = "http://127.0.0.1:10809"
+    # ПРИНУДИТЕЛЬНАЯ ОЧИСТКА ПРОКСИ (для работы в Google Colab)
+    for var in ["HTTP_PROXY", "HTTPS_PROXY", "http_proxy", "https_proxy"]:
+        os.environ.pop(var, None)
 
     api_key = os.getenv("YANDEX_API_KEY")
     folder_id = os.getenv("YANDEX_FOLDER_ID")
