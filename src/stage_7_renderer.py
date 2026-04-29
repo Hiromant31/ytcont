@@ -278,26 +278,35 @@ def run_stage_7_render():
             final_clips = []
             audio_refs  = []
 
-        for i, scene in enumerate(scenes):
-            print(f"   ∟ Сцена {scene['scene_id']} + субтитры")
-            clip, audio = create_animated_clip(scene, ep_name)
-            audio_refs.append(audio)
-            if i > 0:
-                clip = clip.with_effects([CrossFadeIn(duration=0.6)])
-            final_clips.append(clip)
+            # Этот цикл ДОЛЖЕН быть внутри первого
+            for i, scene in enumerate(scenes):
+                print(f"   ∟ Сцена {scene['scene_id']} + субтитры")
+                clip, audio = create_animated_clip(scene, ep_name)
+                audio_refs.append(audio)
+                if i > 0:
+                    clip = clip.with_effects([CrossFadeIn(duration=0.6)])
+                final_clips.append(clip)
 
-        final_video = concatenate_videoclips(final_clips, method="compose", padding=-0.6)
-        target_path = os.path.join(output_dir, f"{ep_name}.mp4")
-        print(f"🚀 Запись: {target_path}...")
+            # Сборка и запись тоже ДОЛЖНЫ быть внутри первого цикла
+            if final_clips:
+                final_video = concatenate_videoclips(final_clips, method="compose", padding=-0.6)
+                target_path = os.path.join(output_dir, f"{ep_name}.mp4")
+                print(f"🚀 Запись: {target_path}...")
 
-        final_video.write_videofile(
-            target_path, fps=24,
-            codec="libx264", audio_codec="aac",
-            
-        )
+                final_video.write_videofile(
+                    target_path, fps=24,
+                    codec="libx264", audio_codec="aac"
+                )
 
-        final_video.close()
+                final_video.close()
+        
         return True # Сигнал успеха для оркестратора
     except Exception as e:
         print(f"❌ Ошибка рендеринга: {e}")
+        import traceback
+        traceback.print_exc() # Полезно добавить для отладки в Colab
         return False
+
+
+if __name__ == "__main__":
+    run_stage_7_render()        
