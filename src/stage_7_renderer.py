@@ -22,10 +22,18 @@ GROUP_SIZE       = 3
 PHRASE_GAP       = 0.35
 
 def check_fonts():
-    """Проверяет наличие шрифтов и правит конфиг ImageMagick для Colab."""
-    # Исправление политики ImageMagick для Colab (разрешаем чтение шрифтов)
-    if os.path.exists('/etc/ImageMagick-6/policy.xml'):
-        !sed -i 's/domain="path" rights="none" pattern="@\*"/domain="path" rights="read|write" pattern="@*"/g' /etc/ImageMagick-6/policy.xml
+    """Проверяет наличие шрифтов и правит политику ImageMagick через Python."""
+    policy_path = '/etc/ImageMagick-6/policy.xml'
+    if os.path.exists(policy_path):
+        try:
+            with open(policy_path, 'r') as f:
+                content = f.read()
+            # Убираем запрет на чтение путей
+            new_content = content.replace('rights="none" pattern="@*"', 'rights="read|write" pattern="@*"')
+            with open(policy_path, 'w') as f:
+                f.write(new_content)
+        except Exception as e:
+            print(f"⚠️ Не удалось поправить политику ImageMagick: {e}")
     
     if not os.path.exists(FONT_PATH):
         print(f"⚠️ Шрифт не найден по пути {FONT_PATH}. Поиск системного...")
