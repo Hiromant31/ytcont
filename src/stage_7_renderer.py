@@ -301,7 +301,3 @@ def run_stage_7_render():
     except Exception as e:
         print(f"❌ Ошибка рендеринга: {e}")
         return False
-
-
-if __name__ == "__main__":
-    run_stage_7_render()
