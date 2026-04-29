@@ -1,0 +1,117 @@
+import os
+import io
+import base64
+from flask import Flask, request, jsonify, send_file
+from pyngrok import ngrok
+import torch
+from PIL import Image
+from diffusers import StableDiffusionXLPipeline, StableDiffusionXLImg2ImgPipeline
+from google.colab import drive
+import gc  # Добавь этот импорт в начало файла
+
+# --- 1. МОНТИРОВАНИЕ ДИСКА ---
+drive.mount('/content/drive')
+MODEL_CACHE_DIR = "/content/drive/MyDrive/ai_models_sdxl_fast"
+os.makedirs(MODEL_CACHE_DIR, exist_ok=True)
+
+# --- 2. ЗАГРУЗКА МОДЕЛИ (Облегченная версия SDXL Lightning) ---
+# Используем готовую сборку, которая точно влезет в RAM
+MODEL_ID = "segmind/Segmind-Vega" # Это очень быстрая и легкая архитектура на базе SDXL
+
+print("🚀 Загрузка быстрой модели... Пожалуйста, подождите.")
+
+# Загружаем пайплайн
+pipe_text = StableDiffusionXLPipeline.from_pretrained(
+    MODEL_ID,
+    torch_dtype=torch.float16,
+    variant="fp16",
+    cache_dir=MODEL_CACHE_DIR
+).to("cuda")
+
+# Включаем оптимизацию памяти
+pipe_text.enable_attention_slicing()
+
+# Создаем Img2Img на той же базе
+pipe_img = StableDiffusionXLImg2ImgPipeline(**pipe_text.components).to("cuda")
+
+print("✅ Сервер готов! Используется Segmind-Vega (SDXL Speed Optimized)")
+
+app = Flask(__name__)
+
+
+
+@app.route('/api/generate', methods=['POST'])
+def api_generate():
+    data = request.json
+    prompt = data.get('prompt', '')
+    negative_prompt = data.get('negative_prompt', '')
+    num_steps = int(data.get('steps', 25))
+    guidance = float(data.get('guidance', 7.5))
+    image_b64 = data.get('image', None)
+    strength = float(data.get('strength', 0.6))
+
+    try:
+        # ПРИНУДИТЕЛЬНАЯ ОЧИСТКА ПЕРЕД ГЕНЕРАЦИЕЙ
+        torch.cuda.empty_cache()
+        gc.collect()
+
+        with torch.inference_mode():
+            if image_b64 and len(image_b64) > 100:
+                img_data = base64.b64decode(image_b64)
+                init_image = Image.open(io.BytesIO(img_data)).convert("RGB").resize((688, 1216))
+                output = pipe_img(
+                    prompt=prompt,
+                    negative_prompt=negative_prompt,
+                    image=init_image,
+                    strength=strength,
+                    num_inference_steps=num_steps,
+                    guidance_scale=guidance,
+                    width=688,
+                    height=1216
+                )
+            else:
+                output = pipe_text(
+                    prompt=prompt,
+                    negative_prompt=negative_prompt,
+                    num_inference_steps=num_steps,
+                    guidance_scale=guidance,
+                    width=688,
+                    height=1216
+                )
+
+            result = output.images[0]
+
+        img_io = io.BytesIO()
+        result.save(img_io, 'PNG')
+        img_io.seek(0)
+
+        # ОЧИСТКА ПОСЛЕ ГЕНЕРАЦИИ
+        del output
+        torch.cuda.empty_cache()
+        gc.collect()
+
+        return send_file(img_io, mimetype='image/png')
+
+    except Exception as e:
+        # Если вылетела ошибка памяти, пробуем очистить всё
+        torch.cuda.empty_cache()
+        gc.collect()
+        print(f"❌ Ошибка: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+# --- 3. ЗАПУСК NGROK ---
+NGROK_TOKEN = "2yvbdtjBg5mPI10BJeH29Rle1z1_5qjEdRwz68npHcGaZNmvz"
+ngrok.set_auth_token(NGROK_TOKEN)
+ngrok.kill()
+public_url = ngrok.connect(5000)
+print(f"\n🔗 URL ДЛЯ ВАШЕГО ПРОЕКТА: {public_url}/api/generate")
+
+if __name__ == '__main__':
+    app.run(port=5000)
+
+
+# Установка библиотек для работы нейросети и сервера
+!pip install diffusers transformers accelerate bitsandbytes safetensors flask flask-ngrok pyngrok
+
+!pip install -U diffusers transformers accelerate bitsandbytes
