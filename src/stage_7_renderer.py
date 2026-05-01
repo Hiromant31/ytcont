@@ -188,14 +188,42 @@ def create_animated_clip(scene_data, ep_name, target_size=(240, 426)):
     clip = clip.with_audio(audio)
     return clip, audio
 
+# ... (твои импорты и вспомогательные функции для текста/анимаций оставляем без изменений) ...
+
 def run_stage_7_render():
-    global FONT_PATH
-    FONT_PATH = check_fonts()
+    # Очистка прокси
+    for var in ["HTTP_PROXY", "HTTPS_PROXY", "http_proxy", "https_proxy"]:
+        os.environ.pop(var, None)
+
+    # --- НАСТРОЙКИ ПО УМОЛЧАНИЮ ---
+    target_size = (1080, 1920)
+    codec = "libx264"
+    test_mode = False
+
+    # --- ЧТЕНИЕ settings.json ---
+    if os.path.exists("settings.json"):
+        try:
+            with open("settings.json", "r", encoding="utf-8") as f:
+                s = json.load(f)
+                
+                # Извлекаем высоту (например, из "720p" -> 720)
+                height = int(s.get("quality", "1080p").replace("p", ""))
+                ratio = s.get("aspect_ratio", "9:16")
+                
+                if ratio == "9:16":
+                    width = int(height * (9/16))
+                    target_size = (width, height)
+                else:
+                    width = int(height * (16/9))
+                    target_size = (width, height)
+                
+                codec = s.get("codec", "libx264")
+                test_mode = s.get("test_mode", False)
+        except Exception as e:
+            print(f"⚠️ Ошибка настроек: {e}")
+
     manifest_path = "data/3_assembly_manifest.json"
-    
-    if not os.path.exists(manifest_path):
-        print(f"❌ Манифест не найден: {manifest_path}")
-        return False
+    if not os.path.exists(manifest_path): return False
 
     try:
         with open(manifest_path, "r", encoding="utf-8") as f:
@@ -205,44 +233,40 @@ def run_stage_7_render():
         os.makedirs(output_dir, exist_ok=True)
 
         for ep_name, scenes in manifest.items():
-            print(f"\n🎬 Рендеринг эпизода: {ep_name}")
-            final_clips = []
+            print(f"\n🎬 Рендер: {ep_name} ({target_size[0]}x{target_size[1]})")
+            if test_mode: print("🧪 ВКЛЮЧЕН ТЕСТОВЫЙ РЕЖИМ (15 сек)")
             
-            # Вложенный цикл (8 пробелов от края)
+            final_clips = []
             for i, scene in enumerate(scenes):
-                print(f"   ∟ Сцена {scene['scene_id']}")
-                clip, audio = create_animated_clip(scene, ep_name)
-                
-                if i > 0:
-                    clip = clip.with_effects([CrossFadeIn(duration=0.6)])
-                
+                # Передаем размер в функцию создания клипа
+                clip, audio = create_animated_clip(scene, ep_name, target_size=target_size)
+                if i > 0: clip = clip.with_effects([CrossFadeIn(duration=0.6)])
                 final_clips.append(clip)
 
-            # Проверка и сборка (8 пробелов от края, внутри цикла по эпизодам)
             if final_clips:
                 final_video = concatenate_videoclips(final_clips, method="compose", padding=-0.6)
+                
+                # --- ЛОГИКА ТЕСТОВОГО РЕЖИМА ---
+                if test_mode:
+                    # В MoviePy 2.x используется subclipped
+                    final_video = final_video.subclipped(0, 15)
+
                 target_path = os.path.join(output_dir, f"{ep_name}.mp4")
-                print(f"🚀 Запись: {target_path}...")
+                preset = "ultrafast" if codec == "libx264" else "fast"
 
                 final_video.write_videofile(
                     target_path, 
                     fps=24,
-                    codec="libx264", 
+                    codec=codec, 
                     audio_codec="aac",
-                    threads=4, 
-                    preset="ultrafast"
+                    threads=4,
+                    preset=preset
                 )
                 
                 final_video.close()
-                for c in final_clips:
-                    c.close()
+                for c in final_clips: c.close()
         
         return True
     except Exception as e:
-        print(f"❌ Ошибка рендеринга: {e}")
-        import traceback
-        traceback.print_exc()
+        print(f"❌ Ошибка рендера: {e}")
         return False
-
-if __name__ == "__main__":
-    run_stage_7_render()
