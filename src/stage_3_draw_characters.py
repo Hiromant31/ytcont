@@ -30,6 +30,22 @@ def run_stage_3_refs():
         return
 
     characters = config.get("characters", {})
+    
+    # Дополнительная защита: если characters - это список, преобразуем в словарь
+    if isinstance(characters, list):
+        # Если это список, пытаемся преобразовать его в словарь с индексами или именами
+        # Обычно в таком случае элементы списка могут быть словарями с ключом "name" или просто строками
+        temp_chars = {}
+        for i, item in enumerate(characters):
+            if isinstance(item, dict) and "name" in item:
+                temp_chars[item["name"]] = item.get("description", str(item))
+            elif isinstance(item, dict):
+                temp_chars[f"Character_{i+1}"] = str(item)
+            else:
+                temp_chars[f"Character_{i+1}"] = str(item)
+        characters = temp_chars
+    elif not isinstance(characters, dict):
+        characters = {}
     os.makedirs("outputs/references", exist_ok=True)
 
     # ТЕХНИЧЕСКИЙ СТИЛЬ ДЛЯ ЭТАЛОНА (чтобы лицо было четко видно)

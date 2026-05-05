@@ -49,6 +49,20 @@ def run_stage_2(ai_settings=None, prompts=None):
             visual_config = {}  # Пустой словарь по умолчанию
 
         char_data = visual_config.get("characters", {})
+        
+        # Дополнительная защита: если char_data - это список, преобразуем в словарь
+        if isinstance(char_data, list):
+            temp_chars = {}
+            for i, item in enumerate(char_data):
+                if isinstance(item, dict) and "name" in item:
+                    temp_chars[item["name"]] = item.get("description", str(item))
+                elif isinstance(item, dict):
+                    temp_chars[f"Character_{i+1}"] = str(item)
+                else:
+                    temp_chars[f"Character_{i+1}"] = str(item)
+            char_data = temp_chars
+        elif not isinstance(char_data, dict):
+            char_data = {}
 
         # Берем промпт из UI или из файла
         system_instruction = prompts.get("stage_2_scenes", "") if prompts else ""
