@@ -48,6 +48,8 @@ def run_stage_2(ai_settings=None, prompts=None):
         else:
             visual_config = {}  # Пустой словарь по умолчанию
 
+        char_data = visual_config.get("characters", {})
+
         # Берем промпт из UI или из файла
         system_instruction = prompts.get("stage_2_scenes", "") if prompts else ""
         if not system_instruction:
@@ -55,20 +57,6 @@ def run_stage_2(ai_settings=None, prompts=None):
     except Exception as e:
         print(f"❌ Ошибка загрузки данных: {e}")
         return False
-
-
-
-    # Загрузка данных
-    with open("data/visual_config.json", "r", encoding="utf-8") as f:
-        visual_config = json.load(f)
-
-    # Если visual_config — это список, берем первый элемент
-    if isinstance(visual_config, list) and len(visual_config) > 0:
-        char_data = visual_config[0].get("characters", {})
-    elif isinstance(visual_config, dict):
-        char_data = visual_config.get("characters", {})
-    else:
-        char_data = {}
 
     char_names = list(char_data.keys())
     production_map = {"episodes": {}}
