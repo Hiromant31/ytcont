@@ -345,7 +345,9 @@ class VideoProductionManager:
                     success = func(ai_settings=config.get("ai_settings", {}),
                                   prompts=config.get("prompts", {}))
                 else:
+                    self.log(f"📋 [ORCHESTRATOR] Вызов функции этапа {i+1}: {func.__name__}")
                     success = func()
+                    self.log(f"📋 [ORCHESTRATOR] Функция этапа {i+1} вернула: {success}")
 
                 if success is False:
                     raise Exception(f"Этап '{name}' завершился с ошибкой.")
