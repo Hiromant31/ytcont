@@ -4,13 +4,13 @@ Task: Split the story into a sequence of visual frames (scenes).
 
 Output Format: JSON only, structure:
 {
-  "scenes": [
+  "scenes": {
     {
       "scene_id": 1,
       "visual_prompt": "Shot type, [TAGS] action, environment, lighting",
       "audio_segment": "Russian text for TTS"
     }
-  ]
+  }
 }
 
 Rules for "visual_prompt":

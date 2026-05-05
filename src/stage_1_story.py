@@ -54,7 +54,7 @@ EPISODE_PROMPT = """
 
 Напиши эпизод: {EPISODE_NUMBER}
 
-Длина: 130–180 слов
+Длина: 100–120 слов
 
 СТРУКТУРА:
 HOOK:
@@ -65,7 +65,7 @@ END:
 
 ТРЕБОВАНИЯ:
 - связный рассказ (не обрывки)
-- предложения 8–14 слов
+- предложения 5–10 слов
 - без диалогов
 - быстрый темп
 - минимум 1 поворот
@@ -590,7 +590,7 @@ def run_stage_1(ai_settings=None, prompts=None):
                 EPISODE_NUMBER=i
             ),
             "",
-            max_tokens=2000
+            max_tokens=4000
         )
         episodes_raw[f"episode_{i}"] = episode_raw # Сохраняем сырой
 
@@ -602,7 +602,7 @@ def run_stage_1(ai_settings=None, prompts=None):
             model,
             POLISH_PROMPT,
             episode_raw,
-            max_tokens=1500
+            max_tokens=4000
         )
 
         episodes_final[f"episode_{i}"] = episode_final # Сохраняем финальный

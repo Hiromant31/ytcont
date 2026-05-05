@@ -3,167 +3,132 @@
     "episode_1": [
       {
         "scene_id": 1,
-        "visual_prompt": "Wide shot, [MAIN_1] in [PLACE_1] underpass, people walk with numbers above, distant glowing infinity symbol, mysterious mood",
-        "audio_segment": "Всю жизнь Виктор видел смерть как простую цифру над головой жертвы. Пока однажды в подземном переходе не мелькнуло свечение, которое он не смог сосчитать."
+        "visual_prompt": "Wide shot, [PLACE_1] metro crowd, [MAIN_1] noticing man with floating pulsing number one above, dim lighting, tense ambiance",
+        "audio_segment": "В толпе метро Алекс заметил цель. Над головой мужчины пульсировала единица — знак, что сегодня ему суждено умереть."
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Close-up, [MAIN_1] receives contract, number '3' on paper, morning light through window, cold atmosphere",
-        "audio_segment": "Заказ на девушку с числом «три» поступил утром во вторник. Профессиональный киллер принял его без колебаний."
+        "visual_prompt": "Medium shot, [MAIN_1] aiming suppressed pistol, [MAIN_2] homeless man sleeping on cold floor, infinity symbol flickering above, gritty atmosphere",
+        "audio_segment": "Алекс уже готов был спустить курок. Рядом, на холодном полу, спал бездомный, и над ним мерцал символ бесконечности."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Wide shot, busy metro station [PLACE_1], [MAIN_1] standing still among moving crowd, gray tonality",
-        "audio_segment": "Он выследил цель в час пик на станции метро — там, где людские потоки сливаются в серую безликую массу."
+        "visual_prompt": "Close-up, bullet transforming into golden butterfly, sparkling light, [MAIN_1]'s floating number twitches, world around silent, ethereal glow",
+        "audio_segment": "Пуля сорвалась с глушителя и вдруг превратилась в золотую бабочку. Она вспыхнула светом, замерцала и исчезла. Мир вокруг стих, и число, висевшее над самим Алексеем, дрогнуло."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Medium shot, through sniper scope, crosshairs on [MAIN_2] Anna, blurred rush hour background",
-        "audio_segment": "Сквозь оптический прицел он уже различал хрупкий силуэт Анны."
+        "visual_prompt": "Medium shot, [MAIN_1] running through metro tunnel, numbers above him falling like sand, seconds burning, frantic motion, cinematic urgency",
+        "audio_segment": "Оно посыпалось вниз, как песок сквозь пальцы. Алекс бросился бежать, но цифры таяли неумолимо — секунды сгорали с безжалостной скоростью."
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Medium shot, old man [MAIN_2] sits by marble column, glowing infinity sign above, reflections on floor, surreal",
-        "audio_segment": "И вдруг периферийное зрение выхватило аномалию. У колонны сидел бездомный старик. Только вместо цифры над его головой пульсировал знак бесконечности. Он отбрасывал блики на мраморный пол."
-      },
-      {
-        "scene_id": 6,
-        "visual_prompt": "Extreme close-up, [MAIN_1]'s finger on trigger, gun fires, bullet becomes white butterfly mid-air, slow motion",
-        "audio_segment": "Виктор моргнул, отгоняя мираж, и плавно нажал на спусковой крючок. Пуля покинула ствол с привычным свистом. Но за мгновение до касания она превратилась в белую бабочку."
-      },
-      {
-        "scene_id": 7,
-        "visual_prompt": "Medium shot, butterfly lands on [MAIN_2]'s shoulder, she smiles, steps into departing train, doors close",
-        "audio_segment": "Насекомое беззвучно опустилось на плечо Анны. Девушка улыбнулась неведомому порыву и скрылась в вагоне уходящего поезда."
-      },
-      {
-        "scene_id": 8,
-        "visual_prompt": "Montage, multiple shots: poison mist, noose threads dissolving, push turns to rescue, surreal failures",
-        "audio_segment": "Дальнейшие попытки устранить цель проваливались одна за другой. С пугающей театральностью. Яд испарялся. Удавка рассыпалась нитями. Инсценировка падения оборачивалась чудесным спасением."
-      },
-      {
-        "scene_id": 9,
-        "visual_prompt": "Wide shot, late night, [MAIN_1] at desk with blueprints, homeless man [MAIN_2] stands in doorway, infinity symbol fills room with intense light",
-        "audio_segment": "Поздней ночью, когда Виктор склонился над чертежами нового плана, воздух в комнате уплотнился. Запахло озоном и полынью. Нищий стоял в дверях спальни, и его бесконечность залила комнату светом — ярче уличных фонарей."
-      },
-      {
-        "scene_id": 10,
-        "visual_prompt": "Close-up, [MAIN_1]'s face, above his head a number counts down rapidly, intense light from [MAIN_2] off-screen",
-        "audio_segment": "Гость не шевелился. Но над головой самого Виктора его собственное число вдруг побежало вниз. Оно отмеряло секунды обратным отсчётом."
+        "visual_prompt": "Wide shot, at surface exit, street morphing into mirror, reflection of [MAIN_1] with '00:00:01' shining above, time freezes, surreal stillness",
+        "audio_segment": "У выхода на поверхность улица обернулась зеркалом. В отражении над ним горело «00:00:01». Время остановилось."
       }
     ],
     "episode_2": [
       {
         "scene_id": 1,
-        "visual_prompt": "Black screen, title 'EP2 — ЭСКАЛАЦИЯ: НОЛЬ И ВЫБОР' appears, dramatic.",
-        "audio_segment": "EP2 — ЭСКАЛАЦИЯ: НОЛЬ И ВЫБОР"
+        "visual_prompt": "Wide shot, [MAIN_1] searching [PLACE_1], dusty beams, tense atmosphere",
+        "audio_segment": "Алекс искал Еву в заброшенном депо и требовал правды."
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Wide shot, dawn, Victor under digital counter showing -12, ticking seconds.",
-        "audio_segment": "На рассвете табло над головой Виктора показывало минус двенадцать. Счётчик пожирал секунды, стоило лишь подумать об оружии."
+        "visual_prompt": "Medium shot, [MAIN_2] sighing, inside [PLACE_1], dim light, sad expression",
+        "audio_segment": "Она вздохнула и призналась: легенда о Страннике — это древнее проклятие хранителей кармического баланса."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Wide shot, shadowy alley, beggar's silhouette looming.",
-        "audio_segment": "Нищий мерещился в каждой тени."
+        "visual_prompt": "Wide shot, [MAIN_1] finding tramp among rusty carousels at [PLACE_1], dilapidated fairground",
+        "audio_segment": "По наводке Алекс нашёл бродягу среди ржавых каруселей."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Close-up, coffee puddle on ground, beggar's reflection flickers.",
-        "audio_segment": "Его отражение мелькало в кофейной луже."
+        "visual_prompt": "Close-up, dirty face of tramp, familiar features, recognition dawning, grim light",
+        "audio_segment": "Лицо под слоем грязи показалось знакомым."
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Medium shot, steamy bathroom mirror, beggar's silhouette doubled.",
-        "audio_segment": "силуэт двоился за запотевшим стеклом ванной."
+        "visual_prompt": "Medium shot, [MAIN_1] realizing it's his lost brother, emotional shock",
+        "audio_segment": "Это был Марк, его пропавший брат."
       },
       {
         "scene_id": 6,
-        "visual_prompt": "Wide shot, Victor walking blurry street, beggar figure sharpens.",
-        "audio_segment": "С каждым часом реальность становилась всё более зыбкой, а фигура Нищего — лишь чётче."
+        "visual_prompt": "Medium shot, man speaking, showing burning symbol on skin, dramatic light",
+        "audio_segment": "Он говорил медленно, объясняя, как воскрес после предательского выстрела десять лет назад. Теперь бесконечность жгла его символом, заставляя передать бремя тому, кто нарушил баланс сильнее — собственному брату."
       },
       {
         "scene_id": 7,
-        "visual_prompt": "Medium shot, dark market stall, informant showing glowing numbers.",
-        "audio_segment": "Чёрный рынок подтвердил догадку. Числа оказались не сроком жизни, а коэффициентом осознанности — мерой влияния на саму ткань бытия."
+        "visual_prompt": "Wide shot, [MAIN_1] and tramp turning, shadow menacing, tense mood",
+        "audio_segment": "Тень за спиной заставила обоих обернуться."
       },
       {
         "scene_id": 8,
-        "visual_prompt": "Close-up, old documents, 'Infinity: Technical Myth' stamp.",
-        "audio_segment": "Оказалось, бесконечность всегда считалась техническим мифом департамента расчётов."
+        "visual_prompt": "Medium shot, [MAIN_2] emerging from darkness, cold smile, imposing",
+        "audio_segment": "Из темноты вышла Ева с холодной улыбкой."
       },
       {
         "scene_id": 9,
-        "visual_prompt": "Medium shot, Victor at computer screen, pinpointing Anna's location.",
-        "audio_segment": "Тем временем Виктор вычислил Анну."
+        "visual_prompt": "Close-up, [MAIN_2] confessing, calm, dark background",
+        "audio_segment": "Она спокойно призналась: именно она убила Марка, подстроила заказ и свела братьев сегодня. Бесконечность душила её первой, и теперь ей требовался добровольный преемник, чтобы освободиться."
       },
       {
         "scene_id": 10,
-        "visual_prompt": "Medium shot, dim room, Victor confronts Anna, she reveals truth.",
-        "audio_segment": "Встреча обнажила неудобную истину: единственным заказчиком всё это время выступал сам Нищий. Он испытывал, как киллер отреагирует на тройку, — смотрел, дрогнет ли у него рука."
+        "visual_prompt": "Extreme close-up, holographic counter above [MAIN_1] showing 00:00:00, glowing red",
+        "audio_segment": "Счётчик над Алексом показал «00:00:00»."
       },
       {
         "scene_id": 11,
-        "visual_prompt": "Extreme close-up, beggar's finger touches Victor's nose bridge.",
-        "audio_segment": "Испытание провалилось. Нищий коротко коснулся переносицы Виктора и принудительно обнулил его шкалу."
-      },
-      {
-        "scene_id": 12,
-        "visual_prompt": "Medium shot, Victor's body turning transparent, people pass through.",
-        "audio_segment": "Смерть не наступила. Тело Виктора выпало из системы чисел, стало прозрачным для чужих глаз и неспособным коснуться материи."
-      },
-      {
-        "scene_id": 13,
-        "visual_prompt": "Wide shot, Victor floating in void, ethereal voice echoes.",
-        "audio_segment": "Лишь голос прозвучал в вакууме: выбор между вечным дрейфом в нуле и подлинным убийством вне всяких правил. Забрать бесконечность означало перестать цепляться за логику."
-      },
-      {
-        "scene_id": 14,
-        "visual_prompt": "Wide shot, beggar fading into darkness, last warning echoed.",
-        "audio_segment": "Нищий растворился, успев бросить последнее предупреждение."
-      },
-      {
-        "scene_id": 15,
-        "visual_prompt": "Wide shot, Victor determined, surreal landscape, infinity symbol in sky.",
-        "audio_segment": "Теперь охота начиналась по-настоящему, и дичью становилась сама бесконечность."
+        "visual_prompt": "Medium shot, [MAIN_2] extending hand, [MAIN_1] hesitant, choice, moody lighting",
+        "audio_segment": "Ева протянула руку, предлагая выбор без выбора."
       }
     ],
     "episode_3": [
       {
         "scene_id": 1,
-        "visual_prompt": "Medium shot, [MAIN_1] raising pistol in ruined metro tunnel, rusty rails, dim light, dramatic atmosphere",
-        "audio_segment": "В руинах заброшенного туннеля метро Виктор наконец поднял пистолет."
+        "visual_prompt": "Medium shot, [MAIN_1] staring at glowing zero counter on wrist, tense, dark room.",
+        "audio_segment": "Алекс смотрит прямо на свой обнулённый счётчик."
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Medium shot, [MAIN_1] aiming pistol at [MAIN_2] sitting by rusty rails, [MAIN_2] tosses cane, cane rolling with echo, dead silence, cold blue lighting",
-        "audio_segment": "Он навёл оружие на спокойную фигуру, сидящую у ржавых путей. Нищий отбросил трость, и она покатилась с гулким эхом."
+        "visual_prompt": "Medium shot, [MAIN_2] hissing, menacing posture, dim light.",
+        "audio_segment": "Ева шипит, предлагая выбор: смерть сейчас или вечная служба."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Close-up, [MAIN_1] face, eyes cold, determination, dead silence, harsh shadows, dark tunnel background",
-        "audio_segment": "В мёртвой тишине Виктор твёрдо решил, что сможет убить бесконечность, став монстром."
+        "visual_prompt": "Close-up, [MAIN_1] turning head, Mark's fading infinity sign, worried expression.",
+        "audio_segment": "Он переводит взгляд на Марка, чей знак бесконечности медленно угасает."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Extreme close-up, [MAIN_1] finger on trigger, tension, gritty mood, dim light, reflections on gun, dust particles",
-        "audio_segment": "Он сознательно превратил себя в безжалостного охотника, разрушая малейшие связи. Каждый, кого он спасал, становился мишенью нового контракта. Он совершил жестокий расчёт, полагая, что абсолютная жестокость уничтожит веру Нищего. Его палец напрягся на спусковом крючке — он приготовился стереть саму идею бесконечного дара."
+        "visual_prompt": "Medium shot, [MAIN_1] closing eyes, gathering will, then speaking forgiveness, light emanates.",
+        "audio_segment": "Алекс отвергает ловушку, вспоминает закон и, собрав волю, прощает Еву за убийство Марка."
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Extreme close-up, [MAIN_1] eye with dilated pupil reflecting infinity symbol, smooth metal surface, eerie glow, pulsing light",
-        "audio_segment": "В отражении на гладком металле туннеля он вдруг застыл. Сквозь напускной абсолютный ноль едва заметно проступал иной, древний символ. Мерцающая линия бесконечности пульсировала в глубине его собственного расширенного зрачка."
+        "visual_prompt": "Wide shot, Mark turning into glowing particles, warm light, serene.",
+        "audio_segment": "Марк растворяется в тёплом свете."
       },
       {
         "scene_id": 6,
-        "visual_prompt": "Wide shot, [MAIN_1] drops gun on concrete, [MAIN_2] dissolving into swirling glowing butterflies, dark tunnel, cinematic magic realism",
-        "audio_segment": "Оружие со стуком упало на холодный бетон, и Виктор прошептал отказ убивать. Фигура Нищего растворилась в вихре светящихся бабочек, хлынувших в темноту."
+        "visual_prompt": "Close-up, [MAIN_2] body cracking like glass, falling, zero on counter flashing.",
+        "audio_segment": "Оболочка Евы трескается, она падает, её число вспыхивает нулём и исчезает."
       },
       {
         "scene_id": 7,
-        "visual_prompt": "Medium shot, [MAIN_1] stepping out of tunnel shadow into faint light, eyes wide with realization, transforming landscape, hopeful mood",
-        "audio_segment": "Сознание Виктора очистилось, и везде, куда бы он ни посмотрел, вместо чисел проявлялась подлинная суть вещей. Он вышел из тени новым Хранителем, чей путь только начинался."
+        "visual_prompt": "Close-up, [MAIN_1] calm, heart visibly beating through chest, infinity symbol glowing above head.",
+        "audio_segment": "Счётчик на нуле, сердце бьётся, и знак бесконечности возникает над ним."
+      },
+      {
+        "scene_id": 8,
+        "visual_prompt": "Wide shot, [PLACE_1] subway carriage, killer in coat aiming gun at passenger with number 1, tense, gritty lighting.",
+        "audio_segment": "Киллер в метро прицеливается в человека с цифрой один."
+      },
+      {
+        "scene_id": 9,
+        "visual_prompt": "Close-up, [MAIN_1] in subway corner, ragged, serene smile, infinity sign above head, soft light.",
+        "audio_segment": "Алекс, оборванный и умиротворённый, смотрит и улыбается. Над его головой горит знак бесконечности."
       }
     ]
   },
