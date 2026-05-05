@@ -29,6 +29,15 @@ def run_stage_3_refs():
         print("❌ Ошибка: Файл data/visual_config.json не найден. Запусти Stage 1.")
         return
 
+    # Нормализация config: если это список, берем первый элемент как словарь
+    if isinstance(config, list):
+        if len(config) > 0:
+            config = config[0]
+        else:
+            config = {}
+    elif not isinstance(config, dict):
+        config = {}
+
     characters = config.get("characters", {})
     
     # Дополнительная защита: если characters - это список, преобразуем в словарь
