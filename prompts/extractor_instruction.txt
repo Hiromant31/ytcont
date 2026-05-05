@@ -4,8 +4,8 @@ Output Format: JSON strictly following this structure:
 {
   "characters": {
     "The_Protagonist": "Description",
-    "The_Relative": "Description",
-    "The_Antagonist": "Description"
+    "Supporting_Character_1": "Description",
+    "Supporting_Character_2": "Description"
   }
 }
 
@@ -16,5 +16,11 @@ Constraint for "Description":
 4. Content: Focus on gender, age, facial features, hair, and specific clothing.
 5. Goal: Create a stable visual anchor.
 
-Example:
-"The_Protagonist": "Male, 30s, sharp jawline, messy dark hair, intense grey eyes, wearing black futuristic techwear jacket, stoic expression."
+Example Output:
+{
+  "characters": {
+    "The_Protagonist": "Male, 30s, sharp jawline, messy dark hair, intense grey eyes, wearing black futuristic techwear jacket, stoic expression.",
+    "The_Relative": "Female, 50s, elegant silver hair, pearl necklace, expensive silk dress, cold calculating gaze, aristocratic posture.",
+    "The_Lawyer": "Male, 60s, bald head, round glasses, grey business suit, professional demeanor, holding leather briefcase."
+  }
+}
