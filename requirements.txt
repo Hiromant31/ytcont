@@ -1,15 +1,23 @@
-fastapi
-huggingface_hub
-manim
-moviepy
-mutagen
-openai
-openai_whisper
-protobuf
-pydantic
-pyngrok
-python-dotenv
-Requests
-urllib3
-uvicorn
-yandex_ai_studio_sdk
+# AI Studio SDK для Yandex
+yandex-ai-studio-sdk>=1.0.0
+
+# Google API для TTS и YouTube
+google-genai>=1.0.0
+google-auth>=2.0.0
+google-auth-oauthlib>=1.0.0
+google-api-python-client>=2.0.0
+
+# FastAPI и веб
+fastapi>=0.104.0
+uvicorn>=0.24.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# Аудио/видео обработка
+moviepy>=1.0.3
+mutagen>=1.47.0
+openai>=1.0.0
+whisper>=20231117
+
+# Прочие утилиты
+requests>=2.31.0

@@ -7,14 +7,14 @@ import traceback
 import json
 import requests
 
-from .stage_1_story import run_stage_1
-from .stage_2_scenes import run_stage_2
-from .stage_3_draw_characters import run_stage_3_refs
-from .stage_4_yandex_scenes import run_stage_4_scenes
-from .stage_5_tts_yandex import run_stage_5_yandex_tts
-from .stage_5_5_subtitles import run_stage_5_5_subtitles
-from .stage_6_build_manifest import run_stage_6_manifest
-from .stage_7_renderer import run_stage_7_render
+from stage_1_story import run_stage_1
+from stage_2_scenes import run_stage_2
+from stage_3_draw_characters import run_stage_3_refs
+from stage_4_yandex_scenes import run_stage_4_scenes
+from stage_5_tts_yandex import run_stage_5_yandex_tts
+from stage_5_5_subtitles import run_stage_5_5_subtitles
+from stage_6_build_manifest import run_stage_6_manifest
+from stage_7_renderer import run_stage_7_render
 
 
 class VideoProductionManager:
@@ -309,7 +309,7 @@ class VideoProductionManager:
     # ОСНОВНОЙ ЦИКЛ
     # ─────────────────────────────────────────────────────────────
 
-    def run_pipeline(self, start_from=1, custom_idea=None, ai_settings=None, prompts=None, auto_continue=True):
+    def run_pipeline(self, start_from=1, custom_idea=None):
         self.is_running = True
         try:
             if custom_idea and custom_idea.strip():
@@ -317,50 +317,17 @@ class VideoProductionManager:
                     f.write(custom_idea)
                 self.log(f"💡 Идея: {custom_idea[:60]}...")
 
-            # Сохраняем настройки AI и промпты (если переданы) перед первым этапом
-            if start_from == 1:
-                if ai_settings or prompts:
-                    config = self.load_config()
-                    if ai_settings:
-                        config["ai_settings"] = ai_settings
-                    if prompts:
-                        if "prompts" not in config:
-                            config["prompts"] = {}
-                        config["prompts"].update(prompts)
-                    config["auto_continue"] = auto_continue
-                    with open(self.settings_path, "w", encoding="utf-8") as f:
-                        json.dump(config, f, indent=4, ensure_ascii=False)
-                    self.log(f"🔄 Auto-continue: {'ВКЛ' if auto_continue else 'ВЫКЛ'}")
-
-            # Запускаем этапы
             for i in range(start_from - 1, len(self.stages)):
                 name, func = self.stages[i]
                 self.current_stage_idx = i + 1
                 self.status = f"Выполнение: {name}"
                 self.log(f"━━━ ЭТАП {i+1}: {name} ━━━")
 
-                # Передача настроек в этапы 1 и 2
-                if i in [0, 1]:  # Stage 1 и Stage 2
-                    config = self.load_config()
-                    success = func(ai_settings=config.get("ai_settings", {}),
-                                  prompts=config.get("prompts", {}))
-                else:
-                    success = func()
-
+                success = func()
                 if success is False:
                     raise Exception(f"Этап '{name}' завершился с ошибкой.")
 
                 self.log(f"✅ Этап {i+1} завершён.")
-
-                # Проверяем auto_continue
-                if not auto_continue:
-                    self.log(f"⏸️ Ожидание ручного запуска следующего этапа...")
-                    break
-
-                # Если не последний этап и auto_continue включён — продолжаем
-                if i < len(self.stages) - 1:
-                    self.log(f"🚀 Запуск следующего этапа...")
-                    time.sleep(1)
 
             self.status = "Завершено"
             self.log("🎉 Пайплайн завершён успешно!")

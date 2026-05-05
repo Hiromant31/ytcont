@@ -3,7 +3,6 @@ import time
 from dotenv import load_dotenv
 from fastapi import FastAPI, Form
 from fastapi.responses import HTMLResponse
-from pyngrok import ngrok
 import uvicorn
 from google import genai
 
@@ -18,15 +17,6 @@ os.environ["HTTP_PROXY"] = "http://127.0.0.1:10809"
 os.environ["HTTPS_PROXY"] = "http://127.0.0.1:10809"
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-NGROK_AUTH_TOKEN = os.getenv("NGROK_AUTH_TOKEN")
-
-# ================================
-# 🔑 NGROK & GEMINI
-# ================================
-if NGROK_AUTH_TOKEN:
-    ngrok.set_auth_token(NGROK_AUTH_TOKEN)
-else:
-    print("⚠️ Внимание: NGROK_AUTH_TOKEN не найден в .env")
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
@@ -97,16 +87,12 @@ def generate(ads: str = Form(...), task: str = Form(...)):
 # 🚀 ЗАПУСК
 # ================================
 if __name__ == "__main__":
-    # 1. Открываем туннель ngrok
-    try:
-        public_url = ngrok.connect(8000)
-        print(f"\n" + "="*30)
-        print(f"🔥 СЕРВЕР ЗАПУЩЕН")
-        print(f"👉 Ссылка для браузера: {public_url}")
-        print(f"="*30 + "\n")
-    except Exception as e:
-        print(f"❌ Ошибка ngrok: {e}")
+    print(f"\n" + "="*30)
+    print(f"🔥 СЕРВЕР ЗАПУЩЕН")
+    print(f"👉 Локальный URL: http://127.0.0.1:8000")
+    print(f"👉 Для публичного доступа используйте cloudflared tunnel")
+    print(f"="*30 + "\n")
 
-    # 2. Запускаем uvicorn напрямую (без потоков). 
+    # 2. Запускаем uvicorn напрямую (без потоков).
     # Это предотвратит закрытие программы.
     uvicorn.run(app, host="127.0.0.1", port=8000)

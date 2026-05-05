@@ -372,10 +372,6 @@ def call_ai_extractor(client, is_yandex, folder_id, model,
                 )
                 raw_res = response.output_text.strip()
             else:
-                # DeepSeek reasoning поддержка
-                is_deepseek = "deepseek" in model.lower()
-                actual_max_tokens = max_tokens * 3 if is_deepseek else max_tokens
-                
                 response = client.chat.completions.create(
                     model=model,
                     messages=[
@@ -383,7 +379,7 @@ def call_ai_extractor(client, is_yandex, folder_id, model,
                         {"role": "user",   "content": current_user}
                     ],
                     temperature=0.1,
-                    max_tokens=actual_max_tokens
+                    max_tokens=max_tokens
                 )
                 
                 if not response.choices:
@@ -446,10 +442,6 @@ def call_ai_text(client, is_yandex, folder_id, model, system_prompt, user_input,
             )
             result = response.output_text
         else:
-            # DeepSeek reasoning поддержка: увеличиваем токены для моделей с reasoning
-            is_deepseek = "deepseek" in model.lower()
-            actual_max_tokens = max_tokens * 3 if is_deepseek else max_tokens
-            
             response = client.chat.completions.create(
                 model=model,
                 messages=[
@@ -457,7 +449,7 @@ def call_ai_text(client, is_yandex, folder_id, model, system_prompt, user_input,
                     {"role": "user", "content": user_input}
                 ],
                 temperature=0.7,
-                max_tokens=actual_max_tokens
+                max_tokens=max_tokens
             )
             
             if not response.choices:

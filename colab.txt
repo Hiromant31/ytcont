@@ -1,0 +1,64 @@
+import os
+import shutil
+
+# 1. Сначала ВСЕГДА переходим в корень Colab, чтобы не было ошибки "No such file or directory"
+%cd /content
+
+PROJECT_PATH = "/content/ytcont"
+
+# 2. Теперь безопасно удаляем старую папку, если она есть
+if os.path.exists(PROJECT_PATH):
+    print("🗑️ Удаление старой папки проекта...")
+    shutil.rmtree(PROJECT_PATH)
+
+# 3. Клонируем заново
+!git clone https://github.com/Hiromant31/ytcont.git
+
+%cd {PROJECT_PATH}
+!pip install -r requirements.txt --no-deps
+
+
+# 5. Создаем нужные папки
+os.makedirs("data", exist_ok=True)
+os.makedirs("outputs", exist_ok=True)
+
+print("\n✅ Ступень 1 завершена успешно!")
+
+
+
+
+import os
+from google.colab import drive, userdata # Добавляем userdata для доступа к секретам
+try:
+    os.environ["NGROK_AUTH_TOKEN"] = userdata.get('NGROK_AUTH_TOKEN')
+    os.environ["YANDEX_API_KEY"] = userdata.get('YANDEX_API_KEY')
+    os.environ["YANDEX_FOLDER_ID"] = userdata.get('YANDEX_FOLDER_ID')
+    print("✅ Токен Ngrok успешно получен из секретов")
+except:
+    print("❌ Ошибка: Секрет NGROK_AUTH_TOKEN не найден или доступ к нему не разрешен (включи переключатель!)")
+
+
+
+# 1. Устанавливаем ffmpeg с поддержкой аппаратного ускорения
+!apt-get update
+!apt-get install -y ffmpeg
+!pip install --upgrade moviepy
+
+# 2. Магия для MoviePy: заставляем его использовать системный ffmpeg, а не встроенный
+import imageio_ffmpeg
+import os
+os.environ["IMAGEIO_FFMPEG_EXE"] = "/usr/bin/ffmpeg"
+
+# 3. Проверяем, видит ли ffmpeg твою карту T4
+!ffmpeg -encoders | grep nvenc
+
+!python src/main.py
+
+
+
+env -u ANTHROPIC_API_KEY \
+ANTHROPIC_API_KEY="sk-b4222e16d793c53d-1ee27c-8122977d" \
+ANTHROPIC_AUTH_TOKEN="sk-b4222e16d793c53d-1ee27c-8122977d" \
+ANTHROPIC_BASE_URL="http://localhost:20129/v1" \
+ANTHROPIC_MODEL="kr/claude-sonnet-4.5" \
+claude

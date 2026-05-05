@@ -1,0 +1,15 @@
+Анализ проблемы:
+1. Файл: src/main_enhanced.py
+2. Python f-строка начинается на строке 72: return f"""<!DOCTYPE html>...
+3. Внутри f-строки есть JavaScript код с одинарными кавычками
+4. Проблемные строки:
+   - 731: statusDot.className = 'status-indicator done';
+   - 732: statusText.textContent = 'YouTube настроен ✓';
+   - 743: statusDot.className = 'status-indicator error';
+   - 744: statusText.textContent = 'YouTube не настроен ✗';
+   - 708-711: несколько строк с 'status-indicator' в одинарных кавычках
+
+Решение: нужно либо:
+1. Заменить одинарные кавычки в JavaScript на двойные
+2. Экранировать одинарные кавычки внутри f-строки
+3. Преобразовать f-строку в обычную строку и использовать .format()

@@ -1,0 +1,32 @@
+{
+  "api_url": "https://ai.api.cloud.yandex.net/v1",
+  "folder_id": null,
+  "api_key": null,
+  "models": {
+    "default": "gpt://{YANDEX_FOLDER_ID}/gemma-3-27b-it/latest"
+  },
+  "text_stages": {
+    "1": {
+      "name": "Сценарий",
+      "model": "gemma-3-27b-it",
+      "prompt": null
+    },
+    "2": {
+      "name": "Раскадровка",
+      "model": "gemma-3-27b-it",
+      "prompt": null
+    }
+  },
+  "prompts": {
+    "1": {
+      "sys_prompt": null,
+      "user_context": null,
+      "files": []
+    },
+    "2": {
+      "sys_prompt": null,
+      "user_context": null,
+      "files": []
+    }
+  }
+}

@@ -1381,9 +1381,7 @@ if __name__ == "__main__":
             "uvicorn", "main:app",
             "--host", "127.0.0.1",
             "--port", "8000",
-            "--reload",
-            "--no-access-log",
-            "--log-level", "warning"
+            "--reload"
         ], cwd=os.path.dirname(os.path.abspath(__file__)))
         
         # Ждём запуска сервера
