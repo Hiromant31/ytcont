@@ -38,6 +38,19 @@ def run_extraction():
         # Получаем чистый результат
         result = json.loads(response.text)
 
+        # Нормализация: гарантируем, что result - это словарь с ключом "characters"
+        if isinstance(result, list):
+            # Если нейросеть вернула список, оборачиваем его
+            result = {"characters": result}
+        elif not isinstance(result, dict):
+            # Если вообще не словарь и не список, создаем пустую структуру
+            result = {"characters": {}}
+        elif "characters" not in result:
+            # Если словарь есть, но ключа "characters" нет, добавляем его
+            # Предполагаем, что весь ответ - это и есть данные персонажей, если структура плоская
+            # Но лучше оставить как есть, если там другая структура, или создать пустой список
+            result["characters"] = {}
+
         # Сохраняем в один файл
         os.makedirs("data", exist_ok=True)
         with open("data/visual_config.json", "w", encoding="utf-8") as f:
