@@ -31,7 +31,11 @@ def run_stage_2():
             episodes = json.load(f)
         with open("data/visual_config.json", "r", encoding="utf-8") as f:
             visual_config = json.load(f)
-        system_instruction = Path("prompts/stage_2_scenes.txt").read_text(encoding="utf-8")
+        
+        # Берем промпт из UI или из файла
+        system_instruction = prompts.get("stage_2_scenes", "") if prompts else ""
+        if not system_instruction:
+            system_instruction = Path("prompts/stage_2_scenes.txt").read_text(encoding="utf-8")
     except Exception as e:
         print(f"❌ Ошибка загрузки данных: {e}")
         return False
