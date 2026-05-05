@@ -2,6 +2,7 @@ import os
 import json
 import time
 import re
+import traceback
 from pathlib import Path
 from dotenv import load_dotenv
 import openai
@@ -622,23 +623,41 @@ def run_stage_1(ai_settings=None, prompts=None):
     print("   ✓ Pipeline завершён → data/1_base_structure.json")
 
     # ── 3. ЭКСТРАКТОР ──
-    print("👤 Извлекаем персонажей и визуальный конфиг...")
+    print("\n" + "="*60)
+    print("👤 [EXTRACTOR MODULE] Извлекаем персонажей и визуальный стиль...")
+    print("="*60)
+    
+    # Собираем весь текст сценария для анализа
     full_text = "\n\n".join(episodes_final.values())
-
+    print(f"📝 [EXTRACTOR] Анализируемый текст: {len(full_text)} символов")
+    print(f"   Эпизодов: {len(episodes_final)}")
+    
+    # Формируем системный промпт для экстрактора
     extractor_system = (
         prompts_dict["extractor"].strip()
         + "\n\n"
         "=== СТРОГИЕ ПРАВИЛА ФОРМАТА ===\n"
         "- Верни ТОЛЬКО JSON, без текста вокруг, без ``` блоков.\n"
+        "- Структура JSON должна быть такой:\n"
+        '  {\n'
+        '    "characters": {\n'
+        '      "Имя_Персонажа": "Описание внешности (120-150 символов)",\n'
+        '      "Другой_Персонаж": "Описание"\n'
+        '    },\n'
+        '    "visual_style": "Описание общего визуального стиля"\n'
+        '  }\n'
         "- Все строковые значения — в ОДНУ строку (без символов переноса строки внутри).\n"
-        "- Описания — максимум 8 слов на поле.\n"
+        "- Описания персонажей — максимум 8 слов на поле.\n"
         "- Никаких спецсимволов кроме букв, цифр, пробела, точки, запятой.\n"
+        "- ГРУППЫ ЛЮДЕЙ (семья, толпа, команда) считаются за ОДНО действующее лицо.\n"
     )
 
     extractor_user = (
         "Проанализируй сценарий и верни ТОЛЬКО JSON (без пояснений):\n\n"
         + full_text
     )
+    
+    print("🤖 [EXTRACTOR] Отправка запроса к AI...")
 
     try:
         visual_config = call_ai_extractor(
@@ -650,15 +669,40 @@ def run_stage_1(ai_settings=None, prompts=None):
             user_text=extractor_user,
             max_tokens=3000
         )
-
+        
+        print(f"✅ [EXTRACTOR] AI вернул данные")
+        print(f"   Тип результата: {type(visual_config).__name__}")
+        if isinstance(visual_config, dict):
+            print(f"   Ключи: {list(visual_config.keys())}")
+            if "characters" in visual_config:
+                chars = visual_config["characters"]
+                if isinstance(chars, dict):
+                    print(f"   Персонажей найдено: {len(chars)}")
+                    for name in chars.keys():
+                        print(f"      - {name}")
+        
+        # Сохраняем результат
         with open("data/visual_config.json", "w", encoding="utf-8") as f:
             json.dump(visual_config, f, ensure_ascii=False, indent=2)
-
-        print("✅ Stage 1 успешно завершён.")
+        
+        print(f"💾 [EXTRACTOR] Сохранено в data/visual_config.json")
+        print("\n✅ Stage 1 успешно завершён.")
         return True
 
     except Exception as e:
-        print(f"❌ Ошибка экстрактора: {e}")
+        print(f"\n❌ [EXTRACTOR ERROR] Ошибка экстрактора: {e}")
+        traceback.print_exc()
+        
+        # Создаём резервный файл с пустыми персонажами
+        print("⚠️ [EXTRACTOR] Создаём fallback файл...")
+        fallback_config = {
+            "characters": {},
+            "visual_style": "Unknown",
+            "error": "Extractor failed"
+        }
+        with open("data/visual_config.json", "w", encoding="utf-8") as f:
+            json.dump(fallback_config, f, ensure_ascii=False, indent=2)
+        
         return False
 
 
