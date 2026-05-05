@@ -3,112 +3,167 @@
     "episode_1": [
       {
         "scene_id": 1,
-        "visual_prompt": "Extreme close-up, [MAIN_2]'s wrinkled old face, grey hair, shocked expression, dramatic lighting",
-        "audio_segment": "Мой одноклассник-мажор внезапно постарел на 40 лет, когда я отказался продать ему свой завтрашний день."
+        "visual_prompt": "Wide shot, [MAIN_1] in [PLACE_1] underpass, people walk with numbers above, distant glowing infinity symbol, mysterious mood",
+        "audio_segment": "Всю жизнь Виктор видел смерть как простую цифру над головой жертвы. Пока однажды в подземном переходе не мелькнуло свечение, которое он не смог сосчитать."
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Medium shot, [MAIN_1] shakes head refusing tablet from [MAIN_2], school corridor [PLACE_1], fluorescent light",
-        "audio_segment": "И когда Алан подошёл ко мне в школьном коридоре с планшетом для перевода, я лишь покачал головой и сказал «нет»."
+        "visual_prompt": "Close-up, [MAIN_1] receives contract, number '3' on paper, morning light through window, cold atmosphere",
+        "audio_segment": "Заказ на девушку с числом «три» поступил утром во вторник. Профессиональный киллер принял его без колебаний."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Close-up, [MAIN_2]'s hand forcing [MAIN_1]'s finger onto scanner, angry grip, school corridor [PLACE_1]",
-        "audio_segment": "Он в ярости схватил меня за руку и прижал палец к сканеру насильно."
+        "visual_prompt": "Wide shot, busy metro station [PLACE_1], [MAIN_1] standing still among moving crowd, gray tonality",
+        "audio_segment": "Он выследил цель в час пик на станции метро — там, где людские потоки сливаются в серую безликую массу."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Wide shot, [MAIN_1] and [MAIN_2] in [PLACE_1], red error flash, air shimmering with low-frequency hum",
-        "audio_segment": "Но система выдала ошибку, экран замигал красным, и воздух вокруг нас задрожал от низкого гула."
+        "visual_prompt": "Medium shot, through sniper scope, crosshairs on [MAIN_2] Anna, blurred rush hour background",
+        "audio_segment": "Сквозь оптический прицел он уже различал хрупкий силуэт Анны."
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Extreme close-up, [MAIN_2]'s hand rapidly wrinkling, hair turning grey, time-lapse effect, horrified face",
-        "audio_segment": "Алан отшатнулся, когда его собственная рука начала покрываться морщинами прямо на глазах, а волосы стали седыми за три секунды."
+        "visual_prompt": "Medium shot, old man [MAIN_2] sits by marble column, glowing infinity sign above, reflections on floor, surreal",
+        "audio_segment": "И вдруг периферийное зрение выхватило аномалию. У колонны сидел бездомный старик. Только вместо цифры над его головой пульсировал знак бесконечности. Он отбрасывал блики на мраморный пол."
       },
       {
         "scene_id": 6,
-        "visual_prompt": "Medium shot, [MAIN_2] now elderly, trembling hands, decrepit appearance, dim corridor [PLACE_1]",
-        "audio_segment": "Теперь он стоял передо мной дряхлым стариком и смотрел на свои трясущиеся руки."
+        "visual_prompt": "Extreme close-up, [MAIN_1]'s finger on trigger, gun fires, bullet becomes white butterfly mid-air, slow motion",
+        "audio_segment": "Виктор моргнул, отгоняя мираж, и плавно нажал на спусковой крючок. Пуля покинула ствол с привычным свистом. Но за мгновение до касания она превратилась в белую бабочку."
       },
       {
         "scene_id": 7,
-        "visual_prompt": "Wide shot, [MAIN_1] at window, view outside [PLACE_1], black unmarked van approaching, tense atmosphere",
-        "audio_segment": "Я почувствовал странное облегчение, пока не увидел в окне чёрный фургон без номеров, который медленно подъезжал к школе."
+        "visual_prompt": "Medium shot, butterfly lands on [MAIN_2]'s shoulder, she smiles, steps into departing train, doors close",
+        "audio_segment": "Насекомое беззвучно опустилось на плечо Анны. Девушка улыбнулась неведомому порыву и скрылась в вагоне уходящего поезда."
       },
       {
         "scene_id": 8,
-        "visual_prompt": "Close-up, [MAIN_2]'s dry lips, weak whisper, fear in eyes, dim lighting",
-        "audio_segment": "Алан прошептал пересохшими губами: «Ты даже не представляешь, кого мы сейчас разбудили»."
+        "visual_prompt": "Montage, multiple shots: poison mist, noose threads dissolving, push turns to rescue, surreal failures",
+        "audio_segment": "Дальнейшие попытки устранить цель проваливались одна за другой. С пугающей театральностью. Яд испарялся. Удавка рассыпалась нитями. Инсценировка падения оборачивалась чудесным спасением."
+      },
+      {
+        "scene_id": 9,
+        "visual_prompt": "Wide shot, late night, [MAIN_1] at desk with blueprints, homeless man [MAIN_2] stands in doorway, infinity symbol fills room with intense light",
+        "audio_segment": "Поздней ночью, когда Виктор склонился над чертежами нового плана, воздух в комнате уплотнился. Запахло озоном и полынью. Нищий стоял в дверях спальни, и его бесконечность залила комнату светом — ярче уличных фонарей."
+      },
+      {
+        "scene_id": 10,
+        "visual_prompt": "Close-up, [MAIN_1]'s face, above his head a number counts down rapidly, intense light from [MAIN_2] off-screen",
+        "audio_segment": "Гость не шевелился. Но над головой самого Виктора его собственное число вдруг побежало вниз. Оно отмеряло секунды обратным отсчётом."
       }
     ],
     "episode_2": [
       {
         "scene_id": 1,
-        "visual_prompt": "Wide shot, [MAIN_1] entering [PLACE_1], door slamming, [MAIN_2] pointing, muffled argument, thud, glass breaking, tense dim lighting",
-        "audio_segment": "Рен вбежал в квартиру, и дверь за ним захлопнулась с глухим стуком, отрезая лестничный шум. Сестра Рика уже стояла в коридоре и молча указала на комнату родителей. Из-за двери доносился приглушенный, но резкий спор, а затем глухой удар и звон разбитого стекла."
+        "visual_prompt": "Black screen, title 'EP2 — ЭСКАЛАЦИЯ: НОЛЬ И ВЫБОР' appears, dramatic.",
+        "audio_segment": "EP2 — ЭСКАЛАЦИЯ: НОЛЬ И ВЫБОР"
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Medium shot, [MAIN_1] at doorway, mother on floor among shards, hand to bruised cheek, open window curtain fluttering, dramatic lighting",
-        "audio_segment": "Рен рванул дверь на себя и застыл на пороге, потому что мать сидела на полу среди осколков, прижимая ладонь к разбитой скуле. Но смотрела она не на детей, а на открытое окно, в котором колыхалась занавеска."
+        "visual_prompt": "Wide shot, dawn, Victor under digital counter showing -12, ticking seconds.",
+        "audio_segment": "На рассвете табло над головой Виктора показывало минус двенадцать. Счётчик пожирал секунды, стоило лишь подумать об оружии."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Wide shot, [MAIN_2] rushing to first aid kit, [MAIN_1] at window looking down, shadow disappearing, tense mood",
-        "audio_segment": "Рика бросилась к аптечке, а Рен шагнул к окну и увидел, как внизу исчезает тень."
+        "visual_prompt": "Wide shot, shadowy alley, beggar's silhouette looming.",
+        "audio_segment": "Нищий мерещился в каждой тени."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Close-up, [MAIN_1] turning, mother's hands hiding crumpled envelope under floorboard, secretive, dim light",
-        "audio_segment": "Он обернулся к матери, ожидая слез, но вместо этого увидел, как она лихорадочно прячет под половицу мятый конверт, о существовании которого они не знали."
+        "visual_prompt": "Close-up, coffee puddle on ground, beggar's reflection flickers.",
+        "audio_segment": "Его отражение мелькало в кофейной луже."
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Medium shot, [MAIN_2] frozen with bandage, mother whispering, [MAIN_1] looking at envelope, shock",
-        "audio_segment": "А потом Рика застыла с бинтом в руке, потому что мать прошептала одно имя, которого не должно было быть в этом городе. Хидео Такада."
+        "visual_prompt": "Medium shot, steamy bathroom mirror, beggar's silhouette doubled.",
+        "audio_segment": "силуэт двоился за запотевшим стеклом ванной."
       },
       {
         "scene_id": 6,
-        "visual_prompt": "Close-up, mother speaking intensely, [MAIN_1] shocked in background, dramatic lighting",
-        "audio_segment": "Пятнадцать лет назад это имя вычеркнули из всех архивов после дела о подделке медицинских патентов, а главным свидетелем тогда был их отец. Рен медленно перевел взгляд на конверт, и в этот момент мать сказала, что Хидео — его настоящий биологический отец, и что он вернулся за своим долгом."
+        "visual_prompt": "Wide shot, Victor walking blurry street, beggar figure sharpens.",
+        "audio_segment": "С каждым часом реальность становилась всё более зыбкой, а фигура Нищего — лишь чётче."
       },
       {
         "scene_id": 7,
-        "visual_prompt": "Wide shot, entrance door swinging open, father pale breathing heavily, holding photograph, dramatic entrance, dim lighting",
-        "audio_segment": "Рен не успел ответить, потому что входная дверь распахнулась снова. На пороге стоял их отец, но он был бледен и тяжело дышал, а в руке сжимал такую же фотографию, какую только что спрятала мать."
+        "visual_prompt": "Medium shot, dark market stall, informant showing glowing numbers.",
+        "audio_segment": "Чёрный рынок подтвердил догадку. Числа оказались не сроком жизни, а коэффициентом осознанности — мерой влияния на саму ткань бытия."
       },
       {
         "scene_id": 8,
-        "visual_prompt": "Medium shot, father looking at [MAIN_2] then [MAIN_1], tense, holding photo, worried expression",
-        "audio_segment": "Он посмотрел на Рику, потом на Рена и спросил, не приходил ли кто-то похожий на полицейского, потому что три часа назад из тюрьмы сбежал человек, чье лицо близнецы видели на газетных вырезках в запертом ящике его стола."
+        "visual_prompt": "Close-up, old documents, 'Infinity: Technical Myth' stamp.",
+        "audio_segment": "Оказалось, бесконечность всегда считалась техническим мифом департамента расчётов."
       },
       {
         "scene_id": 9,
-        "visual_prompt": "Wide shot, family in room, tension, uncertain expressions, dim light, cinematic mood",
-        "audio_segment": "Теперь они не знали, от кого защищать мать — от чужого или от того, кто вернулся в дом."
+        "visual_prompt": "Medium shot, Victor at computer screen, pinpointing Anna's location.",
+        "audio_segment": "Тем временем Виктор вычислил Анну."
+      },
+      {
+        "scene_id": 10,
+        "visual_prompt": "Medium shot, dim room, Victor confronts Anna, she reveals truth.",
+        "audio_segment": "Встреча обнажила неудобную истину: единственным заказчиком всё это время выступал сам Нищий. Он испытывал, как киллер отреагирует на тройку, — смотрел, дрогнет ли у него рука."
+      },
+      {
+        "scene_id": 11,
+        "visual_prompt": "Extreme close-up, beggar's finger touches Victor's nose bridge.",
+        "audio_segment": "Испытание провалилось. Нищий коротко коснулся переносицы Виктора и принудительно обнулил его шкалу."
+      },
+      {
+        "scene_id": 12,
+        "visual_prompt": "Medium shot, Victor's body turning transparent, people pass through.",
+        "audio_segment": "Смерть не наступила. Тело Виктора выпало из системы чисел, стало прозрачным для чужих глаз и неспособным коснуться материи."
+      },
+      {
+        "scene_id": 13,
+        "visual_prompt": "Wide shot, Victor floating in void, ethereal voice echoes.",
+        "audio_segment": "Лишь голос прозвучал в вакууме: выбор между вечным дрейфом в нуле и подлинным убийством вне всяких правил. Забрать бесконечность означало перестать цепляться за логику."
+      },
+      {
+        "scene_id": 14,
+        "visual_prompt": "Wide shot, beggar fading into darkness, last warning echoed.",
+        "audio_segment": "Нищий растворился, успев бросить последнее предупреждение."
+      },
+      {
+        "scene_id": 15,
+        "visual_prompt": "Wide shot, Victor determined, surreal landscape, infinity symbol in sky.",
+        "audio_segment": "Теперь охота начиналась по-настоящему, и дичью становилась сама бесконечность."
       }
     ],
     "episode_3": [
       {
         "scene_id": 1,
-        "visual_prompt": "Wide shot, [SPEAKER] staring at blank screen, [PLACE_1] with neon lights casting harsh shadows, frustration visible.",
-        "audio_segment": "Для создания сценария 3-го эпизода мне нужна исходная идея (персонажи, конфликт, мир, завязка), как того требует формат работы движка."
+        "visual_prompt": "Medium shot, [MAIN_1] raising pistol in ruined metro tunnel, rusty rails, dim light, dramatic atmosphere",
+        "audio_segment": "В руинах заброшенного туннеля метро Виктор наконец поднял пистолет."
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Medium shot, [SPEAKER] pointing at screen showing 'Episode 3 – Finale', [PLACE_1] cluttered with papers, dim blue light.",
-        "audio_segment": "Вы дали только номер и метку «Финал и развязка», но глобальный сюжет и персонажи неизвестны. Без входной идеи движок не может выдать сценарий, строго следующий вашей структуре удержания и серийности."
+        "visual_prompt": "Medium shot, [MAIN_1] aiming pistol at [MAIN_2] sitting by rusty rails, [MAIN_2] tosses cane, cane rolling with echo, dead silence, cold blue lighting",
+        "audio_segment": "Он навёл оружие на спокойную фигуру, сидящую у ржавых путей. Нищий отбросил трость, и она покатилась с гулким эхом."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Close-up, [SPEAKER] hands gesturing as if offering ideas, speech bubbles with dramatic scenes popping up, [PLACE_1] warm spotlight.",
-        "audio_segment": "Пожалуйста, предоставьте одну конкретную идею — например: «Парень узнаёт, что его девушка — убийца его сестры, и решает отомстить, но всё сложнее» «В мире, где ложь вызывает физическую боль, немой парень влюбляется в глухую девушку» «Студент находит дневник, который пишет будущее, но каждое предсказание — о его неудачах»"
+        "visual_prompt": "Close-up, [MAIN_1] face, eyes cold, determination, dead silence, harsh shadows, dark tunnel background",
+        "audio_segment": "В мёртвой тишине Виктор твёрдо решил, что сможет убить бесконечность, став монстром."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Wide shot, [SPEAKER] leans back with a confident smile, behind a screen displays 'Episode 3' template, [PLACE_1] brightened by white screen glow.",
-        "audio_segment": "Получив идею, я сразу создам 3-й эпизод с крючками, эмоциональным ударом и открытым финалом для продолжения серии."
+        "visual_prompt": "Extreme close-up, [MAIN_1] finger on trigger, tension, gritty mood, dim light, reflections on gun, dust particles",
+        "audio_segment": "Он сознательно превратил себя в безжалостного охотника, разрушая малейшие связи. Каждый, кого он спасал, становился мишенью нового контракта. Он совершил жестокий расчёт, полагая, что абсолютная жестокость уничтожит веру Нищего. Его палец напрягся на спусковом крючке — он приготовился стереть саму идею бесконечного дара."
+      },
+      {
+        "scene_id": 5,
+        "visual_prompt": "Extreme close-up, [MAIN_1] eye with dilated pupil reflecting infinity symbol, smooth metal surface, eerie glow, pulsing light",
+        "audio_segment": "В отражении на гладком металле туннеля он вдруг застыл. Сквозь напускной абсолютный ноль едва заметно проступал иной, древний символ. Мерцающая линия бесконечности пульсировала в глубине его собственного расширенного зрачка."
+      },
+      {
+        "scene_id": 6,
+        "visual_prompt": "Wide shot, [MAIN_1] drops gun on concrete, [MAIN_2] dissolving into swirling glowing butterflies, dark tunnel, cinematic magic realism",
+        "audio_segment": "Оружие со стуком упало на холодный бетон, и Виктор прошептал отказ убивать. Фигура Нищего растворилась в вихре светящихся бабочек, хлынувших в темноту."
+      },
+      {
+        "scene_id": 7,
+        "visual_prompt": "Medium shot, [MAIN_1] stepping out of tunnel shadow into faint light, eyes wide with realization, transforming landscape, hopeful mood",
+        "audio_segment": "Сознание Виктора очистилось, и везде, куда бы он ни посмотрел, вместо чисел проявлялась подлинная суть вещей. Он вышел из тени новым Хранителем, чей путь только начинался."
       }
     ]
   },
