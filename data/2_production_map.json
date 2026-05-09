@@ -3,134 +3,179 @@
     "episode_1": [
       {
         "scene_id": 1,
-        "visual_prompt": "Wide shot, [PLACE_1] metro crowd, [MAIN_1] noticing man with floating pulsing number one above, dim lighting, tense ambiance",
-        "audio_segment": "В толпе метро Алекс заметил цель. Над головой мужчины пульсировала единица — знак, что сегодня ему суждено умереть."
+        "visual_prompt": "Wide shot, [MAIN_1] at [PLACE_1] entrance, holding glowing monocle, neon flashes, dark moody atmosphere.",
+        "audio_segment": "В клубе «Врата» вышибала Виктор вершит суд с помощью монокля, видящего грехи."
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Medium shot, [MAIN_1] aiming suppressed pistol, [MAIN_2] homeless man sleeping on cold floor, infinity symbol flickering above, gritty atmosphere",
-        "audio_segment": "Алекс уже готов был спустить курок. Рядом, на холодном полу, спал бездомный, и над ним мерцал символ бесконечности."
+        "visual_prompt": "Medium shot, [MAIN_1] glares at arrogant official through monocle, holographic list of sins projected, neon backlight.",
+        "audio_segment": "Он проверяет наглого чиновника. Монокль показывает длинный список грехов."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Close-up, bullet transforming into golden butterfly, sparkling light, [MAIN_1]'s floating number twitches, world around silent, ethereal glow",
-        "audio_segment": "Пуля сорвалась с глушителя и вдруг превратилась в золотую бабочку. Она вспыхнула светом, замерцала и исчезла. Мир вокруг стих, и число, висевшее над самим Алексеем, дрогнуло."
+        "visual_prompt": "Wide shot, [MAIN_1] opens fiery chasm to hell, throwing official into abyss, infernal lighting, club dissolves into flames.",
+        "audio_segment": "Вместо VIP-зала Виктор открывает пылающий провал и швыряет чиновника в бездну."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Medium shot, [MAIN_1] running through metro tunnel, numbers above him falling like sand, seconds burning, frantic motion, cinematic urgency",
-        "audio_segment": "Оно посыпалось вниз, как песок сквозь пальцы. Алекс бросился бежать, но цифры таяли неумолимо — секунды сгорали с безжалостной скоростью."
+        "visual_prompt": "Medium shot, [MAIN_2] looks at [MAIN_1] with reproach, neon shadows, tense atmosphere.",
+        "audio_segment": "Алиса упрекает его в отсутствии милосердия."
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Wide shot, at surface exit, street morphing into mirror, reflection of [MAIN_1] with '00:00:01' shining above, time freezes, surreal stillness",
-        "audio_segment": "У выхода на поверхность улица обернулась зеркалом. В отражении над ним горело «00:00:01». Время остановилось."
+        "visual_prompt": "Close-up, [MAIN_1]'s face cold, lips moving, neon glow on monocle, dark background.",
+        "audio_segment": "Но Виктор отвечает, что правила не им писаны."
+      },
+      {
+        "scene_id": 6,
+        "visual_prompt": "Medium shot, a timid girl steps forward, soft light, contrast against dark club.",
+        "audio_segment": "Затем подходит тихая девушка с единственным грехом — самоубийство."
+      },
+      {
+        "scene_id": 7,
+        "visual_prompt": "Close-up, [MAIN_1]'s hand trembles on monocle, conflicted expression, then resolves, fiery glow behind.",
+        "audio_segment": "Виктор на миг колеблется, но отправляет её в круг наказания."
+      },
+      {
+        "scene_id": 8,
+        "visual_prompt": "Wide shot, shadowy [MAIN_3] murmurs, some nod, dim neon, oppressive mood.",
+        "audio_segment": "Позади одобрительно шелестит очередь: «Верно»."
+      },
+      {
+        "scene_id": 9,
+        "visual_prompt": "Extreme close-up, [MAIN_1]'s monocle reflects his face with bloody script overlay, crimson light.",
+        "audio_segment": "В стекле монокля мелькает его отражение с кровавой надписью грехов."
+      },
+      {
+        "scene_id": 10,
+        "visual_prompt": "Close-up, [MAIN_1] squeezes monocle, blinking, reflection vanishes, cold glass gleams.",
+        "audio_segment": "Виктор сжимает монокль, моргает — видение исчезает, оставляя холод стекла."
+      },
+      {
+        "scene_id": 11,
+        "visual_prompt": "Wide shot, [MAIN_3] moves forward, ignoring [MAIN_1]'s trembling hand, dark flow.",
+        "audio_segment": "Очередь движется дальше, не замечая его дрожи."
+      },
+      {
+        "scene_id": 12,
+        "visual_prompt": "Close-up, [MAIN_2] eyes widen, glimpsing a flash of hidden guilt, she stays silent, faint light.",
+        "audio_segment": "Алиса видит вспышку, но молчит, понимая — это проблеск его забытой вины."
       }
     ],
     "episode_2": [
       {
         "scene_id": 1,
-        "visual_prompt": "Wide shot, [MAIN_1] searching [PLACE_1], dusty beams, tense atmosphere",
-        "audio_segment": "Алекс искал Еву в заброшенном депо и требовал правды."
+        "visual_prompt": "Wide shot, [MAIN_1] approaching [PLACE_1] club doors, neon lights, monocle glowing, scanning blank soul",
+        "audio_segment": "Виктор подходит к дверям мрачного клуба, монокль сканирует его душу и видит лишь пустоту, абсолютную безгрешность."
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Medium shot, [MAIN_2] sighing, inside [PLACE_1], dim light, sad expression",
-        "audio_segment": "Она вздохнула и призналась: легенда о Страннике — это древнее проклятие хранителей кармического баланса."
+        "visual_prompt": "Medium shot, [MAIN_3] queue of souls frozen in fear, dark, thunderous voice effect",
+        "audio_segment": "Души в очереди замирают в ужасе, и из темноты раздаётся громовой голос: отправить безгрешного в зал ожидания."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Wide shot, [MAIN_1] finding tramp among rusty carousels at [PLACE_1], dilapidated fairground",
-        "audio_segment": "По наводке Алекс нашёл бродягу среди ржавых каруселей."
+        "visual_prompt": "Close-up, [MAIN_1] hand shaking, tension, dark atmosphere",
+        "audio_segment": "Рука Виктора дрожит, он не понимает, что происходит, но ощущает тревогу."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Close-up, dirty face of tramp, familiar features, recognition dawning, grim light",
-        "audio_segment": "Лицо под слоем грязи показалось знакомым."
+        "visual_prompt": "Close-up, [MAIN_2] whispering to [MAIN_1], dark, intimate mood",
+        "audio_segment": "Алиса наклоняется к Виктору и тихо шепчет: ты совсем не помнишь своего прошлого, не так ли?"
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Medium shot, [MAIN_1] realizing it's his lost brother, emotional shock",
-        "audio_segment": "Это был Марк, его пропавший брат."
+        "visual_prompt": "Wide shot, [MAIN_3] queue murmuring, restless, dark club",
+        "audio_segment": "Очередь начинает роптать, по толпе пробегает волна шёпота и тревожных взглядов."
       },
       {
         "scene_id": 6,
-        "visual_prompt": "Medium shot, man speaking, showing burning symbol on skin, dramatic light",
-        "audio_segment": "Он говорил медленно, объясняя, как воскрес после предательского выстрела десять лет назад. Теперь бесконечность жгла его символом, заставляя передать бремя тому, кто нарушил баланс сильнее — собственному брату."
+        "visual_prompt": "Medium shot, [MAIN_1] turning, monocle aimed at [MAIN_2], dramatic lighting",
+        "audio_segment": "Виктор в ярости разворачивается и направляет монокль прямо на Алису, требуя ответа."
       },
       {
         "scene_id": 7,
-        "visual_prompt": "Wide shot, [MAIN_1] and tramp turning, shadow menacing, tense mood",
-        "audio_segment": "Тень за спиной заставила обоих обернуться."
+        "visual_prompt": "Wide shot, blinding light, [MAIN_2] angel wings unfurling, heavenly glow",
+        "audio_segment": "Вспыхивает ослепительный свет, и за спиной Алисы раскрываются огромные ангельские крылья."
       },
       {
         "scene_id": 8,
-        "visual_prompt": "Medium shot, [MAIN_2] emerging from darkness, cold smile, imposing",
-        "audio_segment": "Из темноты вышла Ева с холодной улыбкой."
+        "visual_prompt": "Close-up, [MAIN_2] speaking, angelic, emotional, soft light",
+        "audio_segment": "Алиса признаётся: ты не живой, ты душа, созданная судить, но твои собственные грехи забыты."
       },
       {
         "scene_id": 9,
-        "visual_prompt": "Close-up, [MAIN_2] confessing, calm, dark background",
-        "audio_segment": "Она спокойно призналась: именно она убила Марка, подстроила заказ и свела братьев сегодня. Бесконечность душила её первой, и теперь ей требовался добровольный преемник, чтобы освободиться."
+        "visual_prompt": "Medium shot, [MAIN_1] enraged, thrusting soul into fiery purgatory pit, flames",
+        "audio_segment": "Ярость охватывает Виктора, и он с силой швыряет безгрешного в пылающее чистилище."
       },
       {
         "scene_id": 10,
-        "visual_prompt": "Extreme close-up, holographic counter above [MAIN_1] showing 00:00:00, glowing red",
-        "audio_segment": "Счётчик над Алексом показал «00:00:00»."
-      },
-      {
-        "scene_id": 11,
-        "visual_prompt": "Medium shot, [MAIN_2] extending hand, [MAIN_1] hesitant, choice, moody lighting",
-        "audio_segment": "Ева протянула руку, предлагая выбор без выбора."
+        "visual_prompt": "Extreme close-up, monocle cracking, reflection of [MAIN_1] face with bloody sins, darkness swallowing",
+        "audio_segment": "Монокль трескается, на мгновение показывая его лицо в кровавых грехах, и тьма поглощает его."
       }
     ],
     "episode_3": [
       {
         "scene_id": 1,
-        "visual_prompt": "Medium shot, [MAIN_1] staring at glowing zero counter on wrist, tense, dark room.",
-        "audio_segment": "Алекс смотрит прямо на свой обнулённый счётчик."
+        "visual_prompt": "Extreme close-up, fiery circle swirling, child soul silhouette inside, dark infernal mood, red glow",
+        "audio_segment": "Что, если последний круг ада можно разорвать, просто отпустив невинную душу?"
       },
       {
         "scene_id": 2,
-        "visual_prompt": "Medium shot, [MAIN_2] hissing, menacing posture, dim light.",
-        "audio_segment": "Ева шипит, предлагая выбор: смерть сейчас или вечная служба."
+        "visual_prompt": "Medium shot, [MAIN_1] Viktor standing in dark club, demon manager emerging from shadows, neon glow casting harsh shadows",
+        "audio_segment": "Менеджер-демон вышел из тьмы, перечисляя грехи Виктора: взяточничество и загубленные души."
       },
       {
         "scene_id": 3,
-        "visual_prompt": "Close-up, [MAIN_1] turning head, Mark's fading infinity sign, worried expression.",
-        "audio_segment": "Он переводит взгляд на Марка, чей знак бесконечности медленно угасает."
+        "visual_prompt": "Medium shot, [MAIN_2] Alisa radiating light, contract burning, [PLACE_1] club interior, neon mixed with divine glow",
+        "audio_segment": "Контракт аннулирован, но ангел Алиса подарила шанс."
       },
       {
         "scene_id": 4,
-        "visual_prompt": "Medium shot, [MAIN_1] closing eyes, gathering will, then speaking forgiveness, light emanates.",
-        "audio_segment": "Алекс отвергает ловушку, вспоминает закон и, собрав волю, прощает Еву за убийство Марка."
+        "visual_prompt": "Medium shot, [MAIN_2] Alisa pointing, child approaching door, [PLACE_1] club background, queue waiting, dim lighting with spot on child",
+        "audio_segment": "Алиса велела отпустить следующую душу без суда, и вот к дверям подошёл ребёнок."
       },
       {
         "scene_id": 5,
-        "visual_prompt": "Wide shot, Mark turning into glowing particles, warm light, serene.",
-        "audio_segment": "Марк растворяется в тёплом свете."
+        "visual_prompt": "Close-up, monocle glowing, accusing text 'bread thief' in red, child in background, [PLACE_1] dark club, tense mood",
+        "audio_segment": "Монокль тут же обвинил его в краже хлеба от голода."
       },
       {
         "scene_id": 6,
-        "visual_prompt": "Close-up, [MAIN_2] body cracking like glass, falling, zero on counter flashing.",
-        "audio_segment": "Оболочка Евы трескается, она падает, её число вспыхивает нулём и исчезает."
+        "visual_prompt": "Wide shot, [PLACE_1] queue of souls frozen, tense silence, neon flickering, club atmosphere, dramatic lighting",
+        "audio_segment": "Очередь замерла в напряжении."
       },
       {
         "scene_id": 7,
-        "visual_prompt": "Close-up, [MAIN_1] calm, heart visibly beating through chest, infinity symbol glowing above head.",
-        "audio_segment": "Счётчик на нуле, сердце бьётся, и знак бесконечности возникает над ним."
+        "visual_prompt": "Medium shot, [MAIN_1] ripping monocle from eye, breaking it, pushing open huge door, [PLACE_1], sparks and light burst",
+        "audio_segment": "Виктор сорвал с лица монокль, сломал его и распахнул дверь."
       },
       {
         "scene_id": 8,
-        "visual_prompt": "Wide shot, [PLACE_1] subway carriage, killer in coat aiming gun at passenger with number 1, tense, gritty lighting.",
-        "audio_segment": "Киллер в метро прицеливается в человека с цифрой один."
+        "visual_prompt": "Extreme wide shot, blinding white light flooding [PLACE_1] club, child soul ascending, souls shielding eyes, extreme contrast",
+        "audio_segment": "Ослепительный свет хлынул в клуб, унося детскую душу в рай."
       },
       {
         "scene_id": 9,
-        "visual_prompt": "Close-up, [MAIN_1] in subway corner, ragged, serene smile, infinity sign above head, soft light.",
-        "audio_segment": "Алекс, оборванный и умиротворённый, смотрит и улыбается. Над его головой горит знак бесконечности."
+        "visual_prompt": "Wide shot, [PLACE_1] club walls cracking, floor opening to fiery abyss, [MAIN_1] Viktor falling, dark red hellish glow",
+        "audio_segment": "Стены задрожали, и бездна потянула Виктора вниз."
+      },
+      {
+        "scene_id": 10,
+        "visual_prompt": "Medium shot, [MAIN_2] Alisa's hand reaching from radiant light, [MAIN_1] falling, dramatic rescue moment, heavenly glow vs abyss darkness",
+        "audio_segment": "Но из сияния протянулась рука Алисы."
+      },
+      {
+        "scene_id": 11,
+        "visual_prompt": "Wide shot, queue of souls parting to form glowing staircase, [MAIN_1] Viktor and [MAIN_2] Alisa ascending, heavenly light, cinematic ethereal mood",
+        "audio_segment": "Очередь расступилась, превращаясь в лестницу в небо. Прощённый Виктор поднимался вместе с ангелом."
       }
     ]
   },
-  "characters_metadata": {}
+  "characters_metadata": {
+    "Виктор": "Вышибала в клубе, широкоплечий, в строгом костюме, с моноклем, видящим грехи. Лицо замкнутое, руки дрожат при сомнениях.",
+    "Алиса": "Девушка с ангельскими крыльями, светлые волосы, простая одежда, взгляд полный сострадания. То официантка, то небесный посланник.",
+    "Очередь": "Безликая вереница душ, разношёрстные тени, шелестящие одеждой. Молчаливая толпа грешников и немногих невинных."
+  },
+  "visual_style": "Мрачный клуб с неоновыми всполохами, пылающий провал в ад, ослепительный свет рая. Монокль отражает кровавые надписи грехов, пространство между тьмой и сиянием."
 }

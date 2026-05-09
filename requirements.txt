@@ -21,3 +21,6 @@ whisper>=20231117
 
 # Прочие утилиты
 requests>=2.31.0
+
+# SQLAlchemy для БД
+sqlalchemy>=2.0.0

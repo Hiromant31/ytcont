@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIO — AI Video Pipeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Noise Texture Background -->
+    <div class="noise-bg"></div>
+ 
+    <div class="shell">
+        <!-- Header -->
+        <header>
+            <div class="logo-mark">🎬</div>
+            <div class="logo-text">
+                <h1>STUDIO</h1>
+                <p>AI Video Pipeline</p>
+            </div>
+        </header>
+ 
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Column: Main Controls -->
+            <div class="left-col">
+                <!-- Idea Card -->
+                <div class="card">
+                    <div class="card-title">Идея проекта</div>
+                    <div class="idea-wrap">
+                        <textarea id="idea" placeholder="Опишите вашу идею для видео проекта..."></textarea>
+                    </div>
+ 
+                    <!-- Settings Row -->
+                    <div class="settings-row">
+                        <div class="field">
+                            <label>Aspect Ratio</label>
+                            <select id="aspect_ratio">
+                                <option value="9:16">9:16 (Shorts)</option>
+                                <option value="16:9">16:9 (YouTube)</option>
+                                <option value="1:1">1:1 (Square)</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Quality</label>
+                            <select id="quality">
+                                <option value="1080p">1080p</option>
+                                <option value="720p">720p</option>
+                                <option value="4k">4K</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Codec</label>
+                            <select id="codec">
+                                <option value="libx264">H.264</option>
+                                <option value="libx265">H.265</option>
+                            </select>
+                        </div>
+                    </div>
+ 
+                    <!-- Episodes Field -->
+                    <div class="field" style="margin-bottom: 16px;">
+                        <label>Количество эпизодов</label>
+                        <select id="num_episodes">
+                            <option value="1">1 эпизод</option>
+                            <option value="2">2 эпизода</option>
+                            <option value="3" selected>3 эпизода</option>
+                            <option value="4">4 эпизода</option>
+                            <option value="5">5 эпизодов</option>
+                        </select>
+                    </div>
+ 
+                    <!-- Toggles -->
+                    <div class="toggle-row">
+                        <label class="toggle">
+                            <input type="checkbox" id="test_mode">
+                            <span class="slider"></span>
+                        </label>
+                        <label for="test_mode">Тестовый режим</label>
+                    </div>
+                    <div class="toggle-row">
+                        <label class="toggle">
+                            <input type="checkbox" id="auto_continue">
+                            <span class="slider"></span>
+                        </label>
+                        <label for="auto_continue">Авто-продолжение</label>
+                    </div>
+                    <div class="toggle-row">
+                        <label class="toggle">
+                            <input type="checkbox" id="use_colab_whisper">
+                            <span class="slider"></span>
+                        </label>
+                        <label for="use_colab_whisper">Colab Whisper</label>
+                    </div>
+                    <div class="toggle-row">
+                        <label class="toggle">
+                            <input type="checkbox" id="use_colab_render">
+                            <span class="slider"></span>
+                        </label>
+                        <label for="use_colab_render">Colab Render</label>
+                    </div>
+ 
+                    <!-- Colab URL (hidden by default) -->
+                    <div class="field" id="colab_url_field" style="display: none; margin-top: 12px;">
+                        <label>Colab URL</label>
+                        <input type="text" id="colab_url" placeholder="https://..." style="width: 100%; background: #0d0d16; border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: var(--font-mono); font-size: 13px; padding: 10px 12px;">
+                    </div>
+                </div>
+ 
+                <!-- Stages Card -->
+                <div class="card">
+                    <div class="card-title">Pipeline Stages</div>
+                    <div class="stage-selector">
+                        <label>Запустить с этапа:</label>
+                        <select id="start_stage">
+                            {% for stage in stages %}
+                            <option value="{{ loop.index }}">{{ loop.index }}. {{ stage.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="startPipeline()">
+                        <span class="btn-icon">▶</span>
+                        Запустить Pipeline
+                    </button>
+                </div>
+ 
+                <!-- Templates Card -->
+                <div class="card">
+                    <div class="card-title">Шаблоны настроек</div>
+                    <div class="template-actions">
+                        <button class="btn btn-secondary" onclick="openTemplateManager()">
+                            <span class="btn-icon">📋</span>
+                            Менеджер шаблонов
+                        </button>
+                        <button class="btn btn-secondary" onclick="openTemplateEditor()">
+                            <span class="btn-icon">✏️</span>
+                            Редактор шаблонов
+                        </button>
+                    </div>
+                </div>
+ 
+                <!-- AI Settings Card -->
+                <div class="card">
+                    <div class="card-title">AI Settings</div>
+                    <button class="btn btn-secondary" onclick="toggleAISettings()">
+                        <span class="btn-icon">⚙️</span>
+                        <span id="aiSettingsToggleText">Показать настройки</span>
+                    </button>
+                    
+                    <div id="aiSettingsPanel" style="display: none; margin-top: 16px;">
+                        <div class="field">
+                            <label>API URL</label>
+                            <input type="text" id="ai_api_url" placeholder="https://ai.api.cloud.yandex.net/v1">
+                        </div>
+                        <div class="field">
+                            <label>API Key</label>
+                            <input type="password" id="ai_api_key" placeholder="Введите API ключ">
+                        </div>
+                        <div class="field">
+                            <label>Folder ID</label>
+                            <input type="text" id="ai_folder_id" placeholder="Folder ID">
+                        </div>
+                        <div class="field">
+                            <label>Model</label>
+                            <input type="text" id="ai_model" placeholder="gemma-3-27b-it/latest">
+                        </div>
+                        <button class="btn btn-accent" onclick="saveAISettings()" style="margin-top: 12px;">
+                            Сохранить AI настройки
+                        </button>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Right Column: Logs & Status -->
+            <div class="right-col">
+                <!-- Status Card -->
+                <div class="card status-card">
+                    <div class="card-title">Статус</div>
+                    <div class="status-info">
+                        <div class="status-badge" id="statusBadge">Ожидание</div>
+                        <div class="stage-progress">
+                            <span id="currentStage">—</span>
+                        </div>
+                    </div>
+                </div>
+ 
+                <!-- Logs Card -->
+                <div class="card logs-card">
+                    <div class="card-title">Логи процесса</div>
+                    <div class="logs-container" id="logs"></div>
+                </div>
+ 
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-title">Быстрые действия</div>
+                    <button class="btn btn-secondary btn-block" onclick="openEpisodes()">
+                        <span class="btn-icon">📄</span>
+                        Просмотр эпизодов
+                    </button>
+                    <button class="btn btn-secondary btn-block" onclick="openPromptEditor()">
+                        <span class="btn-icon">✍️</span>
+                        Редактор промптов
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Template Manager Modal -->
+    <div id="templateManagerModal" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2>Менеджер шаблонов</h2>
+                <button class="modal-close" onclick="closeTemplateManager()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="template-toolbar">
+                    <button class="btn btn-primary" onclick="createNewTemplate()">
+                        <span class="btn-icon">+</span>
+                        Создать шаблон
+                    </button>
+                    <button class="btn btn-secondary" onclick="importTemplate()">
+                        <span class="btn-icon">📥</span>
+                        Импорт
+                    </button>
+                </div>
+                <div id="templatesList" class="templates-grid"></div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Template Editor Modal -->
+    <div id="templateEditorModal" class="modal">
+        <div class="modal-content modal-xl">
+            <div class="modal-header">
+                <h2 id="templateEditorTitle">Редактор шаблона</h2>
+                <button class="modal-close" onclick="closeTemplateEditor()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="editor-layout">
+                    <div class="editor-sidebar">
+                        <div class="field">
+                            <label>Название шаблона</label>
+                            <input type="text" id="templateName" placeholder="Мой шаблон">
+                        </div>
+                        
+                        <div class="editor-tabs">
+                            <button class="tab-btn active" onclick="switchEditorTab('settings')">Settings</button>
+                            <button class="tab-btn" onclick="switchEditorTab('prompts')">Prompts</button>
+                        </div>
+ 
+                        <div class="editor-actions">
+                            <button class="btn btn-primary btn-block" onclick="saveTemplate()">
+                                <span class="btn-icon">💾</span>
+                                Сохранить
+                            </button>
+                            <button class="btn btn-secondary btn-block" onclick="previewTemplate()">
+                                <span class="btn-icon">👁️</span>
+                                Предпросмотр
+                            </button>
+                        </div>
+                    </div>
+ 
+                    <div class="editor-main">
+                        <div id="settingsTab" class="editor-tab-content">
+                            <label>Settings JSON:</label>
+                            <textarea id="templateSettingsJson" rows="15" class="code-editor"></textarea>
+                        </div>
+                        <div id="promptsTab" class="editor-tab-content" style="display: none;">
+                            <label>Prompts JSON:</label>
+                            <textarea id="templatePromptsJson" rows="15" class="code-editor"></textarea>
+                        </div>
+                    </div>
+ 
+                    <div class="editor-preview">
+                        <div class="card-title">Предпросмотр</div>
+                        <iframe id="templatePreviewFrame" class="template-preview"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Episodes Modal -->
+    <div id="episodesModal" class="modal">
+        <div class="modal-content modal-xl">
+            <div class="modal-header">
+                <h2>Просмотр эпизодов</h2>
+                <button class="modal-close" onclick="closeEpisodes()">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="episodesContent"></div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Prompt Editor Modal -->
+    <div id="promptEditorModal" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2>Редактор промптов</h2>
+                <button class="modal-close" onclick="closePromptEditor()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="field">
+                    <label>Stage 1 Writer Prompt</label>
+                    <textarea id="stage1WriterPrompt" rows="8" class="code-editor"></textarea>
+                </div>
+                <div class="field">
+                    <label>Stage 2 Scenes Prompt</label>
+                    <textarea id="stage2ScenesPrompt" rows="8" class="code-editor"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="savePrompts()">
+                    <span class="btn-icon">💾</span>
+                    Сохранить промпты
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Загрузка...</p>
+    </div>
+ 
+    <!-- Pass stages data to JavaScript -->
+    <script>
+        window.STAGES_DATA = {{ stages|tojson }};
+    </script>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -8,6 +8,55 @@ from yandex_ai_studio_sdk import AIStudio
 
 load_dotenv()
 
+def normalize_visual_config(config):
+    """
+    Универсальная нормализация visual_config.
+    Возвращает dict с keys: characters, visual_style
+    """
+    # Случай 1: список
+    if isinstance(config, list):
+        print("🔄 [NORMALIZE] Config - список, ищем персонажей...")
+        result = {"characters": {}, "visual_style": "Not specified"}
+        
+        for i, item in enumerate(config):
+            if isinstance(item, dict):
+                if "characters" in item:
+                    result["characters"].update(item["characters"])
+                    print(f"   ✓ Найдены персонажи в элементе {i}")
+                if "visual_style" in item:
+                    result["visual_style"] = item["visual_style"]
+        
+        return result
+    
+    # Случай 2: словарь
+    if isinstance(config, dict):
+        if "characters" not in config:
+            print("⚠️ [NORMALIZE] Нет секции 'characters'")
+            config["characters"] = {}
+        
+        # Нормализация characters
+        chars = config["characters"]
+        if isinstance(chars, list):
+            normalized = {}
+            for i, item in enumerate(chars):
+                if isinstance(item, dict) and "name" in item:
+                    normalized[item["name"]] = item.get("description", str(item))
+                else:
+                    normalized[f"Character_{i+1}"] = str(item)
+            config["characters"] = normalized
+        elif not isinstance(chars, dict):
+            config["characters"] = {}
+        
+        if "visual_style" not in config:
+            config["visual_style"] = "Not specified"
+        
+        return config
+    
+    # Случай 3: неизвестный тип
+    print(f"⚠️ [NORMALIZE] Неизвестный тип: {type(config).__name__}")
+    return {"characters": {}, "visual_style": "Not specified"}
+
+
 def run_stage_3_refs():
     print("=" * 60, flush=True)
     print("🔍 [STAGE 3 START] Начало этапа 3: Референсы лиц", flush=True)
@@ -32,7 +81,7 @@ def run_stage_3_refs():
         
         # Для референсов используем КВАДРАТ 1:1
         model = model.configure(width_ratio=1, height_ratio=1, seed=42)
-        print("✅ [STAGE 3] Модель инициализирована", flush=True)
+        print("✅ [STAGE 3] Модель инициализирована (формат 1:1)", flush=True)
 
         # Загружаем описание персонажей из Stage 1
         print(f"\n📄 [STAGE 3] Чтение data/visual_config.json...", flush=True)
@@ -57,114 +106,23 @@ def run_stage_3_refs():
             traceback.print_exc()
             return False
 
-        # Извлекаем персонажей - поддержка разных форматов JSON
-        characters = {}
+        # Нормализация конфига
+        print("\n🔄 [STAGE 3] Нормализация конфига...", flush=True)
+        config = normalize_visual_config(config)
         
-        # Формат A: config - это список эпизодов (текущий проблемный случай)
-        # ПРОВЕРЯЕМ СНАЧАЛА, до нормализации!
-        if isinstance(config, list):
-            print(f"\n⚠️ [STAGE 3] Config - список из {len(config)} элементов (эпизоды)", flush=True)
-            print("💡 [STAGE 3] В visual_config.json нет секции 'characters'!", flush=True)
-            print("💡 [STAGE 3] Это означает, что Stage 1 не выполнил извлечение персонажей.", flush=True)
-            print("💡 [STAGE 3] Требуется перезапустить Stage 1 для корректного извлечения персонажей.", flush=True)
-            
-            # Пытаемся найти персонажей в каждом элементе списка
-            for i, item in enumerate(config):
-                if isinstance(item, dict):
-                    if "characters" in item:
-                        characters.update(item["characters"])
-                        print(f"   ✓ Найдены персонажи в элементе {i}", flush=True)
-                    # Проверяем другие возможные ключи
-                    for key in item.keys():
-                        if "char" in key.lower() or "hero" in key.lower() or "person" in key.lower():
-                            print(f"   ⚠️ Подозрительный ключ '{key}' в элементе {i}, но не 'characters'", flush=True)
-            
-            if not characters:
-                print("\n❌ [STAGE 3 ERROR] Персонажи не найдены ни в одном элементе списка!", flush=True)
-                print("\n" + "="*60, flush=True)
-                print("🛑 [STAGE 3 ABORT] Прерывание этапа 3 из-за отсутствия персонажей", flush=True)
-                print("="*60, flush=True)
-                print("\n📋 ИНСТРУКЦИЯ ПО ИСПРАВЛЕНИЮ:", flush=True)
-                print("   1. Запусти Stage 1 заново: python src/stage_1_story.py", flush=True)
-                print("   2. Проверь, что в data/visual_config.json появилась секция 'characters'", flush=True)
-                print("   3. После этого запусти Stage 3 снова", flush=True)
-                print("="*60, flush=True)
-                return False  # Прерываем выполнение, так как нет персонажей
+        characters = config.get("characters", {})
+        visual_style = config.get("visual_style", "Not specified")
         
-        # Нормализация config: если это список, берем первый элемент как словарь
-        # (этот код теперь достигнут только если список был пуст или персонажи найдены)
-        elif isinstance(config, list):
-            if len(config) > 0:
-                config = config[0]
-                print(f"📋 [STAGE 3] Берём первый элемент списка", flush=True)
-            else:
-                config = {}
-                print("⚠️ [STAGE 3] Пустой список, используем {}", flush=True)
-        elif not isinstance(config, dict):
-            print(f"⚠️ [STAGE 3] Config не dict и не list, тип: {type(config).__name__}", flush=True)
-            config = {}
-
-        print(f"🔑 [STAGE 3] Ключи в config: {list(config.keys()) if isinstance(config, dict) else 'N/A'}", flush=True)
+        print(f"🎯 [STAGE 3] Итоговое количество персонажей: {len(characters)}", flush=True)
+        print(f"🎨 [STAGE 3] Визуальный стиль: {visual_style[:100]}...", flush=True)
         
-        # Продолжаем извлечение персонажей для словаря
-        # Формат B: {"characters": {...}}
-        if isinstance(config, dict) and "characters" in config:
-            characters = config.get("characters", {})
-            print(f"\n👥 [STAGE 3] Найдена секция 'characters' в словаре", flush=True)
-        
-        # Формат C: config - словарь без ключа "characters"
-        elif isinstance(config, dict) and len(characters) == 0:
-            print(f"\n⚠️ [STAGE 3] Config - словарь без секции 'characters'", flush=True)
-            print("💡 [STAGE 3] Проверяем альтернативные ключи...", flush=True)
-            
-            # Ищем похожие ключи
-            alt_keys = ["chars", "heroes", "persons", "actors", "cast", "roles"]
-            for key in alt_keys:
-                if key in config:
-                    characters = config[key]
-                    print(f"   ✓ Найдена альтернативная секция '{key}'", flush=True)
-                    break
-            
-            if not characters:
-                print("   ❌ Альтернативные ключи не найдены", flush=True)
-                print(f"   📋 Доступные ключи: {list(config.keys())}", flush=True)
-        
-        # Преобразуем characters в словарь если это список
-        if isinstance(characters, list):
-            print("🔄 [STAGE 3] characters - список, преобразуем...", flush=True)
-            temp_chars = {}
-            for i, item in enumerate(characters):
-                if isinstance(item, dict) and "name" in item:
-                    temp_chars[item["name"]] = item.get("description", str(item))
-                elif isinstance(item, dict):
-                    temp_chars[f"Character_{i+1}"] = str(item)
-                else:
-                    temp_chars[f"Character_{i+1}"] = str(item)
-            characters = temp_chars
-            print(f"✅ [STAGE 3] Преобразовано в: {characters}", flush=True)
-        elif not isinstance(characters, dict):
-            print(f"⚠️ [STAGE 3] characters не dict и не list, тип: {type(characters).__name__}", flush=True)
-            characters = {}
-        
-        print(f"\n🎯 [STAGE 3] Итоговое количество персонажей: {len(characters)}", flush=True)
-        
+        # Проверка наличия персонажей
         if len(characters) == 0:
             print("\n⚠️ [STAGE 3 WARNING] Список персонажей пуст!", flush=True)
             print("💡 [STAGE 3] Возможные причины:", flush=True)
             print("   1. Stage 1 не выполнил извлечение персонажей корректно", flush=True)
             print("   2. В visual_config.json нет секции 'characters'", flush=True)
-            
-            # Проверяем структуру config
-            if isinstance(config, dict):
-                has_episodes = any(key in config for key in ['episodes', 'title', 'hook', 'start', 'build', 'impact', 'end'])
-                if has_episodes:
-                    print("\n❌ [STAGE 3 PROBLEM] visual_config.json содержит сценарий эпизода, а не персонажей!", flush=True)
-                    print("💡 [STAGE 3] Stage 1 не создал описания персонажей.", flush=True)
-                    print("💡 [STAGE 3] Решение:", flush=True)
-                    print("   - Вариант A: Перезапусти Stage 1 с правильным промптом для извлечения персонажей", flush=True)
-                    print("   - Вариант B: Добавь секцию 'characters' вручную в visual_config.json", flush=True)
-                else:
-                    print(f"\n📋 [STAGE 3] Ключи в config: {list(config.keys())}", flush=True)
+            print("   3. Требуется перезапустить Stage 1", flush=True)
             
             # Создаём пустую папку для обозначения завершения этапа
             os.makedirs("outputs/references", exist_ok=True)
@@ -177,11 +135,15 @@ def run_stage_3_refs():
         print("✅ [STAGE 3] Папка готова", flush=True)
 
         # ТЕХНИЧЕСКИЙ СТИЛЬ ДЛЯ ЭТАЛОНА (чтобы лицо было четко видно)
-        ref_style = (
-        "Gritty 2D hand-drawn illustration, bold ink outlines, "
-        "dark moody atmosphere, graphic novel style, flat colors with messy textures, "
-        "sharp contouring, high contrast, noir aesthetic."
-        )
+        # Используем visual_style из конфига если есть, иначе дефолтный
+        if visual_style and visual_style != "Not specified":
+            ref_style = visual_style
+        else:
+            ref_style = (
+                "Gritty 2D hand-drawn illustration, bold ink outlines, "
+                "dark moody atmosphere, graphic novel style, flat colors with messy textures, "
+                "sharp contouring, high contrast, noir aesthetic."
+            )
 
         print(f"\n🎨 [STAGE 3] Генерируем эталонные лица для {len(characters)} персонажей...", flush=True)
         print(f"📝 [STAGE 3] Стиль: {ref_style[:100]}...", flush=True)
@@ -195,7 +157,15 @@ def run_stage_3_refs():
             print(f"📝 [STAGE 3] Описание ({len(description)} символов): {description[:200]}...", flush=True)
             
             # Склеиваем описание из Gemini + наш стиль
-            final_prompt = f"{description}. {ref_style}"
+            # Проверяем, является ли персонаж группой людей
+            is_group = any(word in name.lower() for word in ['семья', 'толпа', 'банда', 'команда', 'группа', 'family', 'crowd', 'gang', 'team', 'group'])
+            
+            if is_group:
+                print(f"👥 [STAGE 3] Обнаружена ГРУППА персонажей: {name}", flush=True)
+                final_prompt = f"{description}. Group portrait, multiple people. {ref_style}"
+            else:
+                final_prompt = f"{description}. Single character portrait. {ref_style}"
+            
             print(f"🔤 [STAGE 3] Промпт ({len(final_prompt)} символов): {final_prompt[:150]}...", flush=True)
 
             try:
@@ -205,7 +175,9 @@ def run_stage_3_refs():
                 result = operation.wait()
                 print(f"✅ [STAGE 3] Изображение получено ({len(result.image_bytes)} байт)", flush=True)
                 
-                output_path = pathlib.Path(f"outputs/references/{name}.jpeg")
+                # Sanitize filename
+                safe_name = "".join(c if c.isalnum() or c in "_ -" else "_" for c in name)
+                output_path = pathlib.Path(f"outputs/references/{safe_name}.jpeg")
                 output_path.write_bytes(result.image_bytes)
                 print(f"✅ [STAGE 3] Сохранено: {output_path}", flush=True)
                 generated_count += 1

@@ -15,6 +15,7 @@ from .stage_5_tts_yandex import run_stage_5_yandex_tts
 from .stage_5_5_subtitles import run_stage_5_5_subtitles
 from .stage_6_build_manifest import run_stage_6_manifest
 from .stage_7_renderer import run_stage_7_render
+from .template_manager import get_active_template
 
 
 class VideoProductionManager:
@@ -309,13 +310,27 @@ class VideoProductionManager:
     # ОСНОВНОЙ ЦИКЛ
     # ─────────────────────────────────────────────────────────────
 
-    def run_pipeline(self, start_from=1, custom_idea=None, ai_settings=None, prompts=None, auto_continue=True):
+    def run_pipeline(self, start_from=1, custom_idea=None, num_episodes=3, ai_settings=None, prompts=None, auto_continue=True):
         self.is_running = True
         try:
             if custom_idea and custom_idea.strip():
                 with open("idea.txt", "w", encoding="utf-8") as f:
                     f.write(custom_idea)
                 self.log(f"💡 Идея: {custom_idea[:60]}...")
+                self.log(f"🎬 Количество эпизодов: {num_episodes}")
+
+            # Загружаем активный шаблон
+            active_template = get_active_template()
+            if active_template and not active_template.get("from_legacy"):
+                self.log(f"🎭 Активный шаблон: {active_template.get('id', 'unknown')}")
+                # Объединяем промпты из шаблона с пользовательскими
+                try:
+                    template_prompts = json.loads(active_template.get("prompts_json", "{}"))
+                    if prompts:
+                        template_prompts.update(prompts)
+                    prompts = template_prompts
+                except Exception as e:
+                    self.log(f"⚠️ Ошибка объединения промптов из шаблона: {e}")
 
             # Сохраняем настройки AI и промпты (если переданы) перед первым этапом
             if start_from == 1:
@@ -328,6 +343,7 @@ class VideoProductionManager:
                             config["prompts"] = {}
                         config["prompts"].update(prompts)
                     config["auto_continue"] = auto_continue
+                    config["num_episodes"] = num_episodes
                     with open(self.settings_path, "w", encoding="utf-8") as f:
                         json.dump(config, f, indent=4, ensure_ascii=False)
                     self.log(f"🔄 Auto-continue: {'ВКЛ' if auto_continue else 'ВЫКЛ'}")
@@ -343,7 +359,8 @@ class VideoProductionManager:
                 if i in [0, 1]:  # Stage 1 и Stage 2
                     config = self.load_config()
                     success = func(ai_settings=config.get("ai_settings", {}),
-                                  prompts=config.get("prompts", {}))
+                                  prompts=config.get("prompts", {}),
+                                  num_episodes=num_episodes)
                 else:
                     self.log(f"📋 [ORCHESTRATOR] Вызов функции этапа {i+1}: {func.__name__}")
                     success = func()

@@ -7,9 +7,18 @@ import subprocess
 import tempfile
 import nest_asyncio
 import uvicorn
+import torch
 from fastapi import FastAPI, BackgroundTasks, UploadFile, File, Form
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from google.colab import userdata
+
+# Для ngrok
+from pyngrok import ngrok
+
+# Для retry session
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 nest_asyncio.apply()
 
@@ -17,6 +26,41 @@ app = FastAPI()
 
 BASE_WORK_DIR = "/content/worker_storage"
 os.makedirs(BASE_WORK_DIR, exist_ok=True)
+
+# ─────────────────────────────────────────────────────────────
+# ГЛОБАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ WHISPER (загружается ОДИН РАЗ)
+# ─────────────────────────────────────────────────────────────
+
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"🔥 Whisper device: {DEVICE}")
+
+try:
+    import whisper
+    model = whisper.load_model("base").to(DEVICE)
+    print("✅ Whisper модель загружена успешно")
+except Exception as e:
+    print(f"❌ Ошибка загрузки Whisper модели: {e}")
+    model = None
+
+# ─────────────────────────────────────────────────────────────
+# RETRY SESSION (для стабильности при работе через Cloudflare Tunnel)
+# ─────────────────────────────────────────────────────────────
+
+def create_retry_session():
+    session = requests.Session()
+    retries = Retry(
+        total=5,
+        backoff_factor=2,
+        status_forcelist=[500, 502, 503, 504],
+        allowed_methods=["POST"]
+    )
+    adapter = HTTPAdapter(max_retries=retries)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
+
+# Глобальная сессия с retry
+retry_session = create_retry_session()
 
 FFMPEG    = "/usr/bin/ffmpeg"
 FONT_PATH = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
@@ -207,18 +251,23 @@ async def api_whisper(
     Если переданы scene_ids_json — список scene_id для разбивки по сценам.
     Возвращает: { "scene_id": [{text, start, end}, ...], ... }
     """
-    import whisper
-
     tmp_dir  = tempfile.mkdtemp()
     tmp_path = os.path.join(tmp_dir, audio.filename)
 
     try:
+        print(f"🚀 START REQUEST: {audio.filename}")
+
         with open(tmp_path, "wb") as f:
             shutil.copyfileobj(audio.file, f)
 
         print(f"🎙️ Whisper: транскрипция {audio.filename}...")
-        model  = whisper.load_model("base")
+
+        if model is None:
+            print("❌ Whisper модель не инициализирована")
+            return JSONResponse(status_code=500, content={"error": "Whisper model not initialized"})
+
         result = model.transcribe(tmp_path, word_timestamps=True, language="ru")
+        print(f"✅ RESPONSE: 200")
 
         scene_ids = json.loads(scene_ids_json)
 
@@ -232,6 +281,7 @@ async def api_whisper(
                         "start": round(w["start"], 3),
                         "end":   round(w["end"], 3),
                     })
+            print("✅ JSON RECEIVED")
             return {"0": words}
 
         # Если scene_ids есть — оркестратор передаёт тайминги сцен отдельно
@@ -245,9 +295,11 @@ async def api_whisper(
                     "end":   round(w["end"], 3),
                 })
 
+        print("✅ JSON RECEIVED")
         return {"words": all_words, "scene_ids": scene_ids}
 
     except Exception as e:
+        print(f"❌ REQUEST FAILED: {e}")
         import traceback
         traceback.print_exc()
         return JSONResponse(status_code=500, content={"error": str(e)})
@@ -358,8 +410,17 @@ async def api_render(
 
 
 @app.get("/", response_class=HTMLResponse)
-async def index():
-    return "<h1>Colab Worker Active</h1><p>Waiting for requests...</p>"
+async def root():
+    return {"status": "alive"}
+
+@app.get("/health", response_class=HTMLResponse)
+async def health():
+    cuda_available = torch.cuda.is_available()
+    return {
+        "status": "healthy",
+        "cuda_available": cuda_available,
+        "device": DEVICE
+    }
 
 
 # ─────────────────────────────────────────────────────────────
@@ -368,10 +429,15 @@ async def index():
 
 if __name__ == "__main__":
     try:
-        # Cloudflare Tunnel (instead of ngrok)
-        # Cloudflared запускается автоматически, просто запускаем сервер
+        # Запуск ngrok для публикации сервера
         print("🚀 Колаб воркер запущен")
         
+        token = userdata.get('NGROK_AUTH_TOKEN')
+        ngrok.set_auth_token(token)
+        ngrok.kill()
+        public_url = ngrok.connect(8001).public_url
+        print(f"\n🌍 COLAB WORKER URL:\n{public_url}\n")
+
         config = uvicorn.Config(app, host="0.0.0.0", port=8001, loop="asyncio")
         server = uvicorn.Server(config)
         loop   = asyncio.get_event_loop()
@@ -379,3 +445,5 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"❌ Ошибка: {e}")
+        import traceback
+        traceback.print_exc()

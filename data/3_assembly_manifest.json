@@ -4,8 +4,8 @@
       "scene_id": 1,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_1.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_1.mp3",
-      "duration": 6.392,
-      "raw_duration": 5.592,
+      "duration": 6.68,
+      "raw_duration": 5.88,
       "animation": "pan_right",
       "transition": "fade"
     },
@@ -13,71 +13,71 @@
       "scene_id": 2,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_2.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_2.mp3",
-      "duration": 8.528,
-      "raw_duration": 7.728,
-      "animation": "pan_right",
-      "transition": "crossfade"
+      "duration": 5.432,
+      "raw_duration": 4.632,
+      "animation": "zoom_out",
+      "transition": "fade"
     },
     {
       "scene_id": 3,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_3.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_3.mp3",
-      "duration": 4.664,
-      "raw_duration": 3.864,
-      "animation": "zoom_in",
+      "duration": 6.584,
+      "raw_duration": 5.784,
+      "animation": "pan_right",
       "transition": "fade"
     },
     {
       "scene_id": 4,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_4.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_4.mp3",
-      "duration": 7.4,
-      "raw_duration": 6.6,
+      "duration": 3.608,
+      "raw_duration": 2.808,
       "animation": "zoom_in",
-      "transition": "crossfade"
+      "transition": "fade"
     },
     {
       "scene_id": 5,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_5.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_5.mp3",
-      "duration": 7.88,
-      "raw_duration": 7.08,
-      "animation": "zoom_in",
-      "transition": "crossfade"
+      "duration": 3.944,
+      "raw_duration": 3.144,
+      "animation": "pan_left",
+      "transition": "fade"
     },
     {
       "scene_id": 6,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_6.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_6.mp3",
-      "duration": 4.136,
-      "raw_duration": 3.336,
-      "animation": "pan_right",
+      "duration": 5.24,
+      "raw_duration": 4.44,
+      "animation": "zoom_out",
       "transition": "fade"
     },
     {
       "scene_id": 7,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_7.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_7.mp3",
-      "duration": 5.864,
-      "raw_duration": 5.064,
-      "animation": "pan_right",
+      "duration": 4.592,
+      "raw_duration": 3.792,
+      "animation": "zoom_out",
       "transition": "crossfade"
     },
     {
       "scene_id": 8,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_8.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_8.mp3",
-      "duration": 4.256,
-      "raw_duration": 3.456,
+      "duration": 3.848,
+      "raw_duration": 3.048,
       "animation": "pan_right",
-      "transition": "crossfade"
+      "transition": "fade"
     },
     {
       "scene_id": 9,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_9.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_9.mp3",
-      "duration": 7.712,
-      "raw_duration": 6.912,
+      "duration": 5.312,
+      "raw_duration": 4.512,
       "animation": "pan_right",
       "transition": "crossfade"
     },
@@ -85,45 +85,27 @@
       "scene_id": 10,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_10.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_10.mp3",
-      "duration": 4.304,
-      "raw_duration": 3.504,
-      "animation": "pan_right",
-      "transition": "crossfade"
+      "duration": 6.08,
+      "raw_duration": 5.28,
+      "animation": "zoom_out",
+      "transition": "fade"
     },
     {
       "scene_id": 11,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_11.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_11.mp3",
-      "duration": 3.368,
-      "raw_duration": 2.568,
-      "animation": "zoom_in",
+      "duration": 3.92,
+      "raw_duration": 3.12,
+      "animation": "pan_right",
       "transition": "fade"
     },
     {
       "scene_id": 12,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_12.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_12.mp3",
-      "duration": 3.512,
-      "raw_duration": 2.712,
+      "duration": 5.648,
+      "raw_duration": 4.848,
       "animation": "zoom_in",
-      "transition": "crossfade"
-    },
-    {
-      "scene_id": 13,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_13.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_13.mp3",
-      "duration": 7.784,
-      "raw_duration": 6.984,
-      "animation": "zoom_in",
-      "transition": "crossfade"
-    },
-    {
-      "scene_id": 14,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_1/scene_14.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_1/scene_14.mp3",
-      "duration": 5.888,
-      "raw_duration": 5.088,
-      "animation": "pan_left",
       "transition": "fade"
     }
   ],
@@ -132,35 +114,35 @@
       "scene_id": 1,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_1.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_1.mp3",
-      "duration": 5.384,
-      "raw_duration": 4.584,
-      "animation": "pan_left",
-      "transition": "fade"
+      "duration": 7.808,
+      "raw_duration": 7.008,
+      "animation": "pan_right",
+      "transition": "crossfade"
     },
     {
       "scene_id": 2,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_2.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_2.mp3",
-      "duration": 10.04,
-      "raw_duration": 9.24,
-      "animation": "zoom_in",
-      "transition": "fade"
+      "duration": 7.88,
+      "raw_duration": 7.08,
+      "animation": "pan_right",
+      "transition": "crossfade"
     },
     {
       "scene_id": 3,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_3.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_3.mp3",
-      "duration": 6.824,
-      "raw_duration": 6.024,
-      "animation": "zoom_in",
-      "transition": "crossfade"
+      "duration": 5.624,
+      "raw_duration": 4.824,
+      "animation": "zoom_out",
+      "transition": "fade"
     },
     {
       "scene_id": 4,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_4.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_4.mp3",
-      "duration": 7.76,
-      "raw_duration": 6.96,
+      "duration": 7.136,
+      "raw_duration": 6.336,
       "animation": "pan_left",
       "transition": "fade"
     },
@@ -168,8 +150,8 @@
       "scene_id": 5,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_5.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_5.mp3",
-      "duration": 7.232,
-      "raw_duration": 6.432,
+      "duration": 5.72,
+      "raw_duration": 4.92,
       "animation": "pan_left",
       "transition": "crossfade"
     },
@@ -177,109 +159,64 @@
       "scene_id": 6,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_6.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_6.mp3",
-      "duration": 6.032,
-      "raw_duration": 5.232,
-      "animation": "pan_left",
-      "transition": "crossfade"
+      "duration": 6.128,
+      "raw_duration": 5.328,
+      "animation": "zoom_out",
+      "transition": "fade"
     },
     {
       "scene_id": 7,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_7.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_7.mp3",
-      "duration": 7.736,
-      "raw_duration": 6.936,
+      "duration": 6.728,
+      "raw_duration": 5.928,
       "animation": "zoom_out",
-      "transition": "fade"
+      "transition": "crossfade"
     },
     {
       "scene_id": 8,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_8.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_8.mp3",
-      "duration": 4.952,
-      "raw_duration": 4.152,
-      "animation": "pan_right",
+      "duration": 7.4,
+      "raw_duration": 6.6,
+      "animation": "pan_left",
       "transition": "fade"
     },
     {
       "scene_id": 9,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_9.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_9.mp3",
-      "duration": 6.944,
-      "raw_duration": 6.144,
-      "animation": "pan_right",
-      "transition": "crossfade"
+      "duration": 6.128,
+      "raw_duration": 5.328,
+      "animation": "zoom_out",
+      "transition": "fade"
     },
     {
       "scene_id": 10,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_10.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_10.mp3",
-      "duration": 9.992,
-      "raw_duration": 9.192,
-      "animation": "pan_right",
+      "duration": 7.28,
+      "raw_duration": 6.48,
+      "animation": "zoom_out",
       "transition": "crossfade"
     },
     {
       "scene_id": 11,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_11.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_11.mp3",
-      "duration": 2.696,
-      "raw_duration": 1.896,
-      "animation": "pan_right",
-      "transition": "crossfade"
+      "duration": 3.992,
+      "raw_duration": 3.192,
+      "animation": "pan_left",
+      "transition": "fade"
     },
     {
       "scene_id": 12,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_12.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_12.mp3",
-      "duration": 4.952,
-      "raw_duration": 4.152,
-      "animation": "zoom_in",
+      "duration": 5.672,
+      "raw_duration": 4.872,
+      "animation": "zoom_out",
       "transition": "fade"
-    },
-    {
-      "scene_id": 13,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_13.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_13.mp3",
-      "duration": 3.416,
-      "raw_duration": 2.616,
-      "animation": "zoom_in",
-      "transition": "crossfade"
-    },
-    {
-      "scene_id": 14,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_14.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_14.mp3",
-      "duration": 6.776,
-      "raw_duration": 5.976,
-      "animation": "zoom_in",
-      "transition": "crossfade"
-    },
-    {
-      "scene_id": 15,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_15.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_15.mp3",
-      "duration": 7.232,
-      "raw_duration": 6.432,
-      "animation": "zoom_in",
-      "transition": "crossfade"
-    },
-    {
-      "scene_id": 16,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_16.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_16.mp3",
-      "duration": 4.28,
-      "raw_duration": 3.48,
-      "animation": "pan_left",
-      "transition": "fade"
-    },
-    {
-      "scene_id": 17,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_2/scene_17.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_2/scene_17.mp3",
-      "duration": 4.952,
-      "raw_duration": 4.152,
-      "animation": "pan_left",
-      "transition": "crossfade"
     }
   ],
   "episode_3": [
@@ -287,136 +224,109 @@
       "scene_id": 1,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_1.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_1.mp3",
-      "duration": 2.168,
-      "raw_duration": 1.368,
-      "animation": "pan_right",
-      "transition": "crossfade"
+      "duration": 5.768,
+      "raw_duration": 4.968,
+      "animation": "zoom_in",
+      "transition": "fade"
     },
     {
       "scene_id": 2,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_2.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_2.mp3",
-      "duration": 8.312,
-      "raw_duration": 7.512,
-      "animation": "pan_right",
-      "transition": "crossfade"
+      "duration": 7.184,
+      "raw_duration": 6.384,
+      "animation": "pan_left",
+      "transition": "fade"
     },
     {
       "scene_id": 3,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_3.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_3.mp3",
-      "duration": 7.256,
-      "raw_duration": 6.456,
-      "animation": "pan_right",
+      "duration": 4.304,
+      "raw_duration": 3.504,
+      "animation": "pan_left",
       "transition": "crossfade"
     },
     {
       "scene_id": 4,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_4.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_4.mp3",
-      "duration": 6.44,
-      "raw_duration": 5.64,
-      "animation": "zoom_in",
-      "transition": "fade"
+      "duration": 5.84,
+      "raw_duration": 5.04,
+      "animation": "pan_left",
+      "transition": "crossfade"
     },
     {
       "scene_id": 5,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_5.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_5.mp3",
-      "duration": 9.152,
-      "raw_duration": 8.352,
-      "animation": "zoom_in",
+      "duration": 4.04,
+      "raw_duration": 3.24,
+      "animation": "pan_left",
       "transition": "crossfade"
     },
     {
       "scene_id": 6,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_6.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_6.mp3",
-      "duration": 4.832,
-      "raw_duration": 4.032,
-      "animation": "pan_left",
+      "duration": 2.504,
+      "raw_duration": 1.704,
+      "animation": "zoom_in",
       "transition": "fade"
     },
     {
       "scene_id": 7,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_7.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_7.mp3",
-      "duration": 8.312,
-      "raw_duration": 7.512,
-      "animation": "pan_left",
+      "duration": 4.616,
+      "raw_duration": 3.816,
+      "animation": "zoom_in",
       "transition": "crossfade"
     },
     {
       "scene_id": 8,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_8.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_8.mp3",
-      "duration": 6.896,
-      "raw_duration": 6.096,
+      "duration": 4.76,
+      "raw_duration": 3.96,
       "animation": "zoom_in",
-      "transition": "fade"
+      "transition": "crossfade"
     },
     {
       "scene_id": 9,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_9.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_9.mp3",
-      "duration": 5.456,
-      "raw_duration": 4.656,
-      "animation": "pan_right",
-      "transition": "fade"
+      "duration": 4.064,
+      "raw_duration": 3.264,
+      "animation": "zoom_in",
+      "transition": "crossfade"
     },
     {
       "scene_id": 10,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_10.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_10.mp3",
-      "duration": 3.368,
-      "raw_duration": 2.568,
-      "animation": "zoom_in",
+      "duration": 3.392,
+      "raw_duration": 2.592,
+      "animation": "pan_left",
       "transition": "fade"
     },
     {
       "scene_id": 11,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_11.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_11.mp3",
-      "duration": 6.32,
-      "raw_duration": 5.52,
-      "animation": "zoom_in",
+      "duration": 6.992,
+      "raw_duration": 6.192,
+      "animation": "pan_left",
       "transition": "crossfade"
     },
     {
       "scene_id": 12,
       "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_12.jpeg",
       "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_12.mp3",
-      "duration": 2.792,
-      "raw_duration": 1.992,
-      "animation": "pan_right",
-      "transition": "fade"
-    },
-    {
-      "scene_id": 13,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_13.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_13.mp3",
-      "duration": 6.608,
-      "raw_duration": 5.808,
-      "animation": "pan_right",
+      "duration": 4.664,
+      "raw_duration": 3.864,
+      "animation": "pan_left",
       "transition": "crossfade"
-    },
-    {
-      "scene_id": 14,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_14.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_14.mp3",
-      "duration": 5.384,
-      "raw_duration": 4.584,
-      "animation": "pan_right",
-      "transition": "crossfade"
-    },
-    {
-      "scene_id": 15,
-      "image_path": "/home/mac/ytcont/outputs/scenes/episode_3/scene_15.jpeg",
-      "audio_path": "/home/mac/ytcont/outputs/audio/episode_3/scene_15.mp3",
-      "duration": 5.576,
-      "raw_duration": 4.776,
-      "animation": "zoom_out",
-      "transition": "fade"
     }
   ]
 }
