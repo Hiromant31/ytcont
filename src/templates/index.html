@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STUDIO — AI Video Pipeline</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <!-- Noise Texture Background -->
     <div class="noise-bg"></div>
- 
+
     <div class="shell">
         <!-- Header -->
         <header>
@@ -20,7 +20,7 @@
                 <p>AI Video Pipeline</p>
             </div>
         </header>
- 
+
         <!-- Main Grid -->
         <div class="main-grid">
             <!-- Left Column: Main Controls -->
@@ -31,7 +31,7 @@
                     <div class="idea-wrap">
                         <textarea id="idea" placeholder="Опишите вашу идею для видео проекта..."></textarea>
                     </div>
- 
+
                     <!-- Settings Row -->
                     <div class="settings-row">
                         <div class="field">
@@ -58,7 +58,7 @@
                             </select>
                         </div>
                     </div>
- 
+
                     <!-- Episodes Field -->
                     <div class="field" style="margin-bottom: 16px;">
                         <label>Количество эпизодов</label>
@@ -70,7 +70,7 @@
                             <option value="5">5 эпизодов</option>
                         </select>
                     </div>
- 
+
                     <!-- Toggles -->
                     <div class="toggle-row">
                         <label class="toggle">
@@ -100,14 +100,14 @@
                         </label>
                         <label for="use_colab_render">Colab Render</label>
                     </div>
- 
+
                     <!-- Colab URL (hidden by default) -->
                     <div class="field" id="colab_url_field" style="display: none; margin-top: 12px;">
                         <label>Colab URL</label>
                         <input type="text" id="colab_url" placeholder="https://..." style="width: 100%; background: #0d0d16; border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: var(--font-mono); font-size: 13px; padding: 10px 12px;">
                     </div>
                 </div>
- 
+
                 <!-- Stages Card -->
                 <div class="card">
                     <div class="card-title">Pipeline Stages</div>
@@ -124,7 +124,7 @@
                         Запустить Pipeline
                     </button>
                 </div>
- 
+
                 <!-- Templates Card -->
                 <div class="card">
                     <div class="card-title">Шаблоны настроек</div>
@@ -139,7 +139,7 @@
                         </button>
                     </div>
                 </div>
- 
+
                 <!-- AI Settings Card -->
                 <div class="card">
                     <div class="card-title">AI Settings</div>
@@ -171,7 +171,7 @@
                     </div>
                 </div>
             </div>
- 
+
             <!-- Right Column: Logs & Status -->
             <div class="right-col">
                 <!-- Status Card -->
@@ -184,13 +184,13 @@
                         </div>
                     </div>
                 </div>
- 
+
                 <!-- Logs Card -->
                 <div class="card logs-card">
                     <div class="card-title">Логи процесса</div>
                     <div class="logs-container" id="logs"></div>
                 </div>
- 
+
                 <!-- Quick Actions -->
                 <div class="card">
                     <div class="card-title">Быстрые действия</div>
@@ -206,7 +206,7 @@
             </div>
         </div>
     </div>
- 
+
     <!-- Template Manager Modal -->
     <div id="templateManagerModal" class="modal">
         <div class="modal-content modal-lg">
@@ -229,7 +229,7 @@
             </div>
         </div>
     </div>
- 
+
     <!-- Template Editor Modal -->
     <div id="templateEditorModal" class="modal">
         <div class="modal-content modal-xl">
@@ -249,7 +249,7 @@
                             <button class="tab-btn active" onclick="switchEditorTab('settings')">Settings</button>
                             <button class="tab-btn" onclick="switchEditorTab('prompts')">Prompts</button>
                         </div>
- 
+
                         <div class="editor-actions">
                             <button class="btn btn-primary btn-block" onclick="saveTemplate()">
                                 <span class="btn-icon">💾</span>
@@ -261,7 +261,7 @@
                             </button>
                         </div>
                     </div>
- 
+
                     <div class="editor-main">
                         <div id="settingsTab" class="editor-tab-content">
                             <label>Settings JSON:</label>
@@ -272,7 +272,7 @@
                             <textarea id="templatePromptsJson" rows="15" class="code-editor"></textarea>
                         </div>
                     </div>
- 
+
                     <div class="editor-preview">
                         <div class="card-title">Предпросмотр</div>
                         <iframe id="templatePreviewFrame" class="template-preview"></iframe>
@@ -281,7 +281,7 @@
             </div>
         </div>
     </div>
- 
+
     <!-- Episodes Modal -->
     <div id="episodesModal" class="modal">
         <div class="modal-content modal-xl">
@@ -294,7 +294,7 @@
             </div>
         </div>
     </div>
- 
+
     <!-- Prompt Editor Modal -->
     <div id="promptEditorModal" class="modal">
         <div class="modal-content modal-lg">
@@ -318,18 +318,17 @@
             </div>
         </div>
     </div>
- 
+
     <!-- Loading Overlay -->
     <div id="loadingOverlay" class="loading-overlay" style="display: none;">
         <div class="loading-spinner"></div>
         <p>Загрузка...</p>
     </div>
- 
+
     <!-- Pass stages data to JavaScript -->
     <script>
         window.STAGES_DATA = {{ stages|tojson }};
     </script>
-
-    <script src="/static/script.js"></script>
+    <script src="/static/js/app.js"></script>
 </body>
 </html>
